@@ -1,0 +1,132 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "AddressBook API",
+        "description": "Address Book API",
+        "contact": {
+            "name": "Jean Nyilimbibi",
+            "url": "https://www.linkedin.com/in/jnyilimbibi",
+            "email": "jean.nyilimbibi@gmail.com"
+        },
+        "license": {
+            "name": "MIT License",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0"
+    },
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/addresses": {
+            "get": {
+                "summary": "List all addresses",
+                "responses": {
+                    "200": {
+                        "description": "All addresses"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Adds an address",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Address"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Added address"
+                    }
+                }
+            }
+        },
+        "/addresses/{addressId}": {
+            "get": {
+                "summary": "Gets an address",
+                "responses": {
+                    "200": {
+                        "description": "Address found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Updates an address",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Address"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Updated address"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletes an address",
+                "responses": {
+                    "204": {
+                        "description": "Deleted address"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "name": "addressId",
+                    "in": "path",
+                    "description": "Address identifier",
+                    "required": true,
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "Address": {
+            "title": "Root Type for Address",
+            "description": "The root of the Address type's schema.",
+            "required": [
+                "country",
+                "City",
+                "Id",
+                "street",
+                "zipcode"
+            ],
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "street": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                }
+            },
+            "example": "{\n    \"Id\": \"12345\",\n    \"City\": \"Paris\",\n    \"State\": \"Ile de France\",\n    \"street\": \"1 rue de Rivoli\",\n    \"zipcode\": \"75001\",\n    \"country\": \"France\"\n}"
+        }
+    },
+    "securityDefinitions": {}
+}

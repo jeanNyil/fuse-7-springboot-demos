@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext id="context1" xmlns="http://camel.apache.org/schema/spring">
+
+        <onException>
+            <exception>java.lang.Exception</exception>
+            <handled><constant>true</constant></handled>
+            <setHeader headerName="Exchange.HTTP_RESPONSE_CODE">
+                <constant>500</constant>
+            </setHeader>
+            <setBody>
+                <simple>${exception.message}</simple>
+            </setBody>
+        </onException>
+
+        <restConfiguration component="servlet" apiContextPath="/openapi.json"/>
+
+        <rest id="rest1" path="/" enableCORS="true">
+            <get id="openapi.json" produces="application/json" uri="openapi.json">
+                <description>Gets the openapi document for this service</description>
+                <route id="rest1-route1">
+                    <setHeader id="setHeader-route1" headerName="Exchange.CONTENT_TYPE">
+                        <constant>application/vnd.oai.openapi+json</constant>
+                    </setHeader>
+                    <setBody id="setBody-route1">
+                        <simple>resource:classpath:openapi.json</simple>
+                    </setBody>
+                </route>
+            </get>
+        </rest>
+
+        <rest id="rest2" path="" bindingMode="json" enableCORS="true">
+            <get uri="/addresses">
+                <to uri="direct:rest1"/>
+            </get>
+            <post uri="/addresses">
+                <param name="body" required="false" type="body"/>
+                <to uri="direct:rest2"/>
+            </post>
+            <get uri="/addresses/{addressId}">
+                <to uri="direct:rest3"/>
+            </get>
+            <put uri="/addresses/{addressId}">
+                <param name="body" required="false" type="body"/>
+                <to uri="direct:rest4"/>
+            </put>
+            <delete uri="/addresses/{addressId}">
+                <to uri="direct:rest5"/>
+            </delete>
+        </rest>
+
+        <route id="route-b313db89-58a6-42cb-8f51-0919ec72434d">
+            <from id="from-91c57d38-d60a-4eef-9221-0dce4a453ce7" uri="direct:rest1"/>
+            <to id="to-da2fb4be-6f59-4628-9b42-99320f619910" uri="direct:501"/>
+        </route>
+        <route id="route-16a2f031-1a0f-493b-b898-4126776f053d">
+            <from id="from-f5a5a8b8-b42d-4832-bdce-a581d10f0c99" uri="direct:rest2"/>
+            <to id="to-efe1174a-2e45-4814-a675-a11e8993f087" uri="direct:501"/>
+        </route>
+        <route id="route-4fcf3905-1eae-4499-8c1c-91cd25030f9e">
+            <from id="from-5720c8af-6328-4ebf-87ef-9b183191fe83" uri="direct:rest3"/>
+            <to id="to-ccf875b3-6bf6-4d32-97a6-56fff583177d" uri="direct:501"/>
+        </route>
+        <route id="route-52f46e3c-27fe-4ee0-9793-242d5a3d9a4a">
+            <from id="from-f0891e5e-b88c-46b2-bb0d-18f764a95cf9" uri="direct:rest4"/>
+            <to id="to-63a74ffb-7078-4dc0-94e1-a05394ec4fcd" uri="direct:501"/>
+        </route>
+        <route id="route-6287fdd9-9007-4f62-99b3-781774b1bbbe">
+            <from id="from-60a6ea99-2d5c-4b42-b521-ade93c6c7ed7" uri="direct:rest5"/>
+            <to id="to-5e01c5e3-28e1-4dbd-81aa-527098c48b9a" uri="direct:501"/>
+        </route>
+
+        <route id="501-route">
+            <from id="from-501-route" uri="direct:501"/>
+            <log id="log-501-route" message="API operation not yet implemented: ${headers.CamelHttpMethod} ${headers.CamelHttpPath}"/>
+            <setHeader id="setHeader-501-route" headerName="Exchange.HTTP_RESPONSE_CODE">
+                <constant>501</constant>
+            </setHeader>
+            <setBody id="setBody-501-route">
+                <simple>API operation not implemented: ${headers.CamelHttpMethod} ${headers.CamelHttpPath}</simple>
+            </setBody>
+        </route>
+
+    </camelContext>
+</beans>
