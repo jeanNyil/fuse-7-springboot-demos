@@ -1,4 +1,4 @@
-# Camel based implementation of the _AddressBook API_ API
+# Camel based implementation of the _AddressBook API_
 
 ## API Description ##
 Address Book API
