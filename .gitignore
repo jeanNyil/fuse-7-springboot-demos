@@ -21,7 +21,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# Red Hat JBoss Developer Studio or Eclipse or IntelliJ IDE directories and resources
+# Red Hat JBoss Developer Studio or Eclipse or IntelliJ IDE or VSCode directories and resources
 /target/
 /.classpath
 /.project
@@ -31,3 +31,5 @@ hs_err_pid*
 /bin/
 /.idea
 *.iml
+/.vscode
+/.factorypath
