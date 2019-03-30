@@ -30,6 +30,7 @@
 
 		<!-- Configure the FMP plugin -->
 		<fabric8.mode>openshift</fabric8.mode>
+		<fabric8.build.strategy>s2i</fabric8.build.strategy>
 		<!-- <fabric8.generator.from>registry.redhat.io/fuse7/fuse-java-openshift:1.2</fabric8.generator.from> -->
 	</properties>
 
@@ -124,6 +125,9 @@
 				<groupId>org.jboss.redhat-fuse</groupId>
 				<artifactId>fabric8-maven-plugin</artifactId>
 				<version>${fuse.version}</version>
+				<configuration>
+					<verbose>true</verbose>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
