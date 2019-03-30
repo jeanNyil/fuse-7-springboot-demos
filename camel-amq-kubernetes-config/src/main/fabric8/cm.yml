@@ -1,0 +1,15 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  # Must match the 'spring.application.name' property of the application
+  name: camel-amq
+data:
+  application.yml: |-
+    # Override the configuration properties here
+    amqp:
+      host: "broker-amq-headless.amq7-broker"
+      port: 5672
+      max-connections: 1
+      max-active-sessions-per-connection: 500
+    hello:
+      message: "Welcome to Red Hat Fuse on OpenShift external configuration lab"

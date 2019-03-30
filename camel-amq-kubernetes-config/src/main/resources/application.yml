@@ -1,0 +1,45 @@
+# Binding health checks to an internal port
+management:
+    port: 8081
+
+# disable all management enpoints except jolokia, hawtio and health endpoints
+endpoints:
+    enabled: false
+    jolokia:
+        enabled: true
+        sensitive: false
+    hawtio:
+        enabled: true
+        sensitive: false
+    health:
+        enabled: true
+
+# Disable embedded HawtIO authentication
+hawtio:
+  authenticationEnabled: false
+
+logging:
+    config: "classpath:logback.xml"
+
+# The name of the Camel app
+camel:
+    springboot:
+        name: "camel-amq"
+        # Keeps the application alive
+        main-run-controller: true
+
+# AMQP connection configuration
+amqp:
+    # host, port, max-connections and max-active-sessions-per-connection can be overriden 
+    # via the camel-amq configmap object 
+    host: "52.57.154.248"
+    port: 30001
+    max-connections: 1
+    max-active-sessions-per-connection: 500
+    # username and password can be overriden via the camel-amq secret object 
+    username: "amquser"
+    password: "R3dH4t1!"
+
+# Welcome message (can be overriden via the camel-amq configmap object)
+hello:
+    message: "Welcome to Red Hat Fuse on OpenShift Labs"

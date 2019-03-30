@@ -1,0 +1,42 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      serviceAccountName: "camel-amq-sa"
+      volumes:
+        - name: "camel-amq"
+          secret:
+            # The secret must be created before deploying this application
+            secretName: "camel-amq"
+      containers:
+        -
+          volumeMounts:
+            - name: "camel-amq"
+              readOnly: true
+              # Mount the secret where spring-cloud-kubernetes is configured to read it
+              # see src/main/resources/bootstrap.yml
+              mountPath: "/etc/secrets/camel-amq"
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: "512Mi"
+            limits:
+              cpu: "1.0"
+              memory: "1Gi"
+          env:
+          #- name: AMQP_HOST
+          #  value: "broker-amq-headless.amq7-broker"
+          #- name: AMQP_PORT
+          #  value: "5672"
+          #- name: AMQP_USERNAME
+          #  valueFrom:
+          #  secretKeyRef:
+          #    key: amqp-username
+          #    name: camel-amq
+          #- name: AMQP_PASSWORD
+          #  valueFrom:
+          #  secretKeyRef:
+          #    key: amqp-password
+          #    name: camel-amq
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
