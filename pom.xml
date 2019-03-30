@@ -12,9 +12,8 @@
 
 	<groupId>io.example</groupId>
 	<artifactId>fuse-7-springboot-demos</artifactId>
+	<version>1.0.0</version>
     <packaging>pom</packaging>
-
-    <version>1.0.0</version>
 
     <description>Fuse 7 Springboot Examples</description>
 
@@ -22,8 +21,16 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- configure the version of Fuse want to use here -->
+		<!-- configure the Fuse version you want to use here -->
 		<fuse.version>7.2.0.fuse-720020-redhat-00001</fuse.version>
+
+		<!-- maven plugin versions -->
+		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+
+		<!-- Configure the FMP plugin -->
+		<fabric8.mode>openshift</fabric8.mode>
+		<!-- <fabric8.generator.from>registry.redhat.io/fuse7/fuse-java-openshift:1.2</fabric8.generator.from> -->
 	</properties>
 
 	<dependencyManagement>
@@ -40,6 +47,12 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- Enabling health checks -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- Camel -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
@@ -48,10 +61,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<!-- testing -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.arquillian.cube</groupId>
+			<artifactId>arquillian-cube-openshift</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.fabric8</groupId>
+			<artifactId>kubernetes-assertions</artifactId>
+			<scope>test</scope>
+	    </dependency>
     </dependencies>
 
     <!-- Licenses -->
@@ -66,7 +97,7 @@
 		<defaultGoal>spring-boot:run</defaultGoal>
 
 		<plugins>
-			<!-- Compiler plugin enforces Java 1.8 compatibility -->
+			<!-- Compiler plugin enforces Java 1.8 compatibility and activates annotation processors -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
@@ -201,6 +232,7 @@
     <!-- Modules -->
     <modules>
         <module>addressbook-api</module>
+		<module>camel-amq-kubernetes-config</module>
     </modules>
 
 </project>
