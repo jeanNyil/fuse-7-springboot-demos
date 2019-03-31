@@ -16,14 +16,14 @@
         -->
         <route id="generate-order-route" streamCache="true">
             <from id="route-timer" uri="timer:order?period=5000"/>
-            <log id="log-welcome-message" message="{{hello.message}}" loggingLevel="INFO"/>
+            <log id="log-welcome-message" loggingLevel="INFO" message="{{hello.message}}"/>
             <bean id="route-new-order" method="generateOrder" ref="orderGenerator"/>
             <setHeader headerName="Exchange.FILE_NAME" id="route-set-order-header">
                 <!-- defining the header containing a simulated file name -->
                 <method method="generateFileName" ref="orderGenerator"/>
             </setHeader>
             <log id="route-log-order" message="Generating order ${file:name}"/>
-            <to id="route-to-incoming-orders" uri="amqp:queue:incoming.orders" pattern="InOnly"/>
+            <to id="route-to-incoming-orders" pattern="InOnly" uri="amqp:queue:incoming.orders"/>
         </route>
         <!--
           This route consumes messages from the JMS queue incomingOrders on the ActiveMQ broker within the ESB.
@@ -39,16 +39,16 @@
                 <when id="route-when-uk">
                     <xpath>/order/customer/country = 'UK'</xpath>
                     <log id="route-log-uk" message="Sending order ${file:name} to the UK"/>
-                    <to id="route-to-uk-orders" uri="amqp:queue:uk.orders" pattern="InOnly"/>
+                    <to id="route-to-uk-orders" pattern="InOnly" uri="amqp:queue:uk.orders"/>
                 </when>
                 <when id="route-when-us">
                     <xpath>/order/customer/country = 'US'</xpath>
                     <log id="route-log-us" message="Sending order ${file:name} to the US"/>
-                    <to id="route-to-us-orders" uri="amqp:queue:us.orders" pattern="InOnly"/>
+                    <to id="route-to-us-orders" pattern="InOnly" uri="amqp:queue:us.orders"/>
                 </when>
                 <otherwise id="route-when-other-country">
                     <log id="route-log-other" message="Sending order ${file:name} to another country"/>
-                    <to id="route-to-other-orders" uri="amqp:queue:other.orders" pattern="InOnly"/>
+                    <to id="route-to-other-orders" pattern="InOnly" uri="amqp:queue:other.orders"/>
                 </otherwise>
             </choice>
             <log id="route-final-log" message="Done processing ${file:name}"/>
