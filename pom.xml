@@ -29,7 +29,14 @@
 		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 
 		<!-- Configure the FMP plugin -->
+		<!-- FMP mode:
+		    - auto (default)
+			- openshift (uses OpenShift to build images)
+			- kubernetes (uses the local docker daemon to build images) -->
 		<fabric8.mode>openshift</fabric8.mode>
+		<!-- OpenShift build strategy:
+		     - s2i (default)
+			 - docker -->
 		<fabric8.build.strategy>s2i</fabric8.build.strategy>
 		<!-- <fabric8.generator.from>registry.redhat.io/fuse7/fuse-java-openshift:1.2</fabric8.generator.from> -->
 	</properties>
