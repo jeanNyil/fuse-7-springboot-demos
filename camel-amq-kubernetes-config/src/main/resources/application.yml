@@ -19,27 +19,31 @@ hawtio:
   authenticationEnabled: false
 
 logging:
-    config: "classpath:logback.xml"
+  config: "classpath:logback.xml"
 
 # The name of the Camel app
 camel:
-    springboot:
-        name: "camel-amq"
-        # Keeps the application alive
-        main-run-controller: true
+  springboot:
+    name: "camel-amq"
+    # Keeps the application alive
+    main-run-controller: true
 
 # AMQP connection configuration
 amqp:
-    # host, port, max-connections and max-active-sessions-per-connection can be overriden 
-    # via the camel-amq configmap object 
-    host: "52.57.154.248"
-    port: 30001
-    max-connections: 1
-    max-active-sessions-per-connection: 500
-    # username and password can be overriden via the camel-amq secret object 
-    username: "amquser"
-    password: "R3dH4t1!"
+  # host, port, max-connections and max-active-sessions-per-connection can be overriden 
+  # via the camel-amq configmap object 
+  host: "52.57.154.248"
+  port: 30001
+  max-connections: 1
+  max-active-sessions-per-connection: 500
+  # username and password can be overriden via the camel-amq secret object 
+  username: "amquser"
+  password: "R3dH4t1!"
+    
+# Timer period configuration (can be overriden via the camel-amq configmap object)
+timer:
+  period-in-ms: 5000
 
 # Welcome message (can be overriden via the camel-amq configmap object)
 hello:
-    message: "Welcome to Red Hat Fuse on OpenShift Labs"
+  message: "Welcome to Red Hat Fuse on OpenShift Labs"
