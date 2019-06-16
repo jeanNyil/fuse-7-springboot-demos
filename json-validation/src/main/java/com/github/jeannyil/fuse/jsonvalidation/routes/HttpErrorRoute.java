@@ -1,4 +1,4 @@
-package com.github.jeannyil.fuse.common.routes;
+package com.github.jeannyil.fuse.jsonvalidation.routes;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;

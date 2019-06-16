@@ -1,5 +1,5 @@
 
-package com.github.jeannyil.fuse.common.models;
+package com.github.jeannyil.fuse.jsonvalidation.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

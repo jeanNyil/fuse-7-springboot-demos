@@ -26,8 +26,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-import com.github.jeannyil.fuse.common.constants.ESBConstants;
 import com.github.jeannyil.fuse.jsonvalidation.Application;
+import com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants;
 
 @RunWith(CamelSpringBootRunner.class)
 @SpringBootTest(classes = {Application.class})
