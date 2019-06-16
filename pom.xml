@@ -15,7 +15,7 @@
 	<version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <description>Fuse 7 Springboot Examples</description>
+    <description>Red Hat Fuse 7 Springboot Examples</description>
 
     <!-- Properties -->
     <properties>
@@ -281,6 +281,7 @@
     <modules>
         <module>addressbook-api</module>
 		<module>camel-amq-kubernetes-config</module>
+		<module>json-validation</module>
     </modules>
 
 </project>

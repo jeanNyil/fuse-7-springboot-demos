@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
-
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
     <camelContext id="addressbook-api-context" xmlns="http://camel.apache.org/schema/spring">
-
         <onException>
             <exception>java.lang.Exception</exception>
-            <handled><constant>true</constant></handled>
+            <handled>
+                <constant>true</constant>
+            </handled>
             <setHeader headerName="Exchange.HTTP_RESPONSE_CODE">
                 <constant>500</constant>
             </setHeader>
@@ -17,14 +14,12 @@
                 <simple>${exception.message}</simple>
             </setBody>
         </onException>
-
-        <restConfiguration component="servlet" apiContextPath="/openapi.json"/>
-
-        <rest id="rest1" path="/" enableCORS="true">
+        <restConfiguration apiContextPath="/openapi.json" component="servlet"/>
+        <rest enableCORS="true" id="rest1" path="/">
             <get id="openapi.json" produces="application/json" uri="openapi.json">
                 <description>Gets the openapi document for this service</description>
                 <route id="rest1-route1">
-                    <setHeader id="setHeader-route1" headerName="Exchange.CONTENT_TYPE">
+                    <setHeader headerName="Exchange.CONTENT_TYPE" id="setHeader-route1">
                         <constant>application/vnd.oai.openapi+json</constant>
                     </setHeader>
                     <setBody id="setBody-route1">
@@ -33,27 +28,25 @@
                 </route>
             </get>
         </rest>
-
-        <rest id="rest2" path="" bindingMode="json" enableCORS="true">
-            <get uri="/addresses">
+        <rest bindingMode="json" enableCORS="true" id="rest2">
+            <get id="get-3e34c3b9-10d2-469d-970c-dbd6155def26" uri="/addresses">
                 <to uri="direct:rest1"/>
             </get>
-            <post uri="/addresses">
+            <post id="post-167f7f56-75b5-497f-8bc1-a99165befbd9" uri="/addresses">
                 <param name="body" required="false" type="body"/>
                 <to uri="direct:rest2"/>
             </post>
-            <get uri="/addresses/{addressId}">
+            <get id="get-dadce105-e134-4630-8835-620b6ed72ac1" uri="/addresses/{addressId}">
                 <to uri="direct:rest3"/>
             </get>
-            <put uri="/addresses/{addressId}">
+            <put id="put-be560b59-7aa2-464c-bddb-e31857e41f4e" uri="/addresses/{addressId}">
                 <param name="body" required="false" type="body"/>
                 <to uri="direct:rest4"/>
             </put>
-            <delete uri="/addresses/{addressId}">
+            <delete id="delete-3e773544-7ac8-4a43-9e62-85b6bd48c22d" uri="/addresses/{addressId}">
                 <to uri="direct:rest5"/>
             </delete>
         </rest>
-
         <route id="route-b313db89-58a6-42cb-8f51-0919ec72434d">
             <from id="from-91c57d38-d60a-4eef-9221-0dce4a453ce7" uri="direct:rest1"/>
             <to id="to-da2fb4be-6f59-4628-9b42-99320f619910" uri="direct:501"/>
@@ -74,17 +67,15 @@
             <from id="from-60a6ea99-2d5c-4b42-b521-ade93c6c7ed7" uri="direct:rest5"/>
             <to id="to-5e01c5e3-28e1-4dbd-81aa-527098c48b9a" uri="direct:501"/>
         </route>
-
         <route id="501-route">
             <from id="from-501-route" uri="direct:501"/>
             <log id="log-501-route" message="API operation not yet implemented: ${headers.CamelHttpMethod} ${headers.CamelHttpPath}"/>
-            <setHeader id="setHeader-501-route" headerName="Exchange.HTTP_RESPONSE_CODE">
+            <setHeader headerName="Exchange.HTTP_RESPONSE_CODE" id="setHeader-501-route">
                 <constant>501</constant>
             </setHeader>
             <setBody id="setBody-501-route">
                 <simple>API operation not implemented: ${headers.CamelHttpMethod} ${headers.CamelHttpPath}</simple>
             </setBody>
         </route>
-
     </camelContext>
 </beans>
