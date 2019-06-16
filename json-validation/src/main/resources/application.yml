@@ -1,0 +1,34 @@
+# Logging configuration
+logging:
+  config: "file:src/main/resources/logback.xml"
+
+# Camel spring-boot properties
+camel:
+  springboot:
+    # The Camel context name
+    name: sample-json-validation-api
+    # Enable stream caching
+    stream-caching-enabled: true
+    # Enable breadcrumb
+    use-breadcrumb: true
+    # Enable MDC logging
+    #use-mdc-logging: true 
+    use-m-d-c-logging: true
+  component:
+    servlet:
+      mapping:
+        contextPath: /*
+
+# Binding health checks to a different port
+management:
+  port: 8081
+  
+# Server listening port
+server:
+  port: 8080
+
+# disable all management enpoints except health
+endpoints:
+  enabled: false
+  health:
+    enabled: true

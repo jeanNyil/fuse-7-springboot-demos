@@ -279,9 +279,8 @@
 
     <!-- Modules -->
     <modules>
-        <module>addressbook-api</module>
 		<module>camel-amq-kubernetes-config</module>
-		<!-- <module>json-validation</module> -->
+		<module>sample-json-validation-api</module>
     </modules>
 
 </project>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+	    <groupId>com.github.jeannyil.fuse</groupId>
+	    <artifactId>fuse-7-springboot-demos</artifactId>
+	    <version>1.0.0</version>
+	</parent>
+
+	<artifactId>sample-json-validation-api</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Sample JSON Validation API</name>
+
+	<dependencies>
+		<!-- Camel -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-swagger-java-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-json-validator</artifactId>
+		</dependency>
+		
+		<!-- Spring-cloud-kubernetes -->
+		<dependency>
+			<groupId>io.fabric8</groupId>
+			<artifactId>spring-cloud-kubernetes-core</artifactId>
+		</dependency>
+
+		<!-- For JSON logging -->
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>5.3</version>
+		</dependency>
+
+		<!-- testing -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-spring</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.skyscreamer</groupId>
+		    <artifactId>jsonassert</artifactId>
+		    <version>1.5.0</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.arquillian.cube</groupId>
+			<artifactId>arquillian-cube-openshift</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.fabric8</groupId>
+			<artifactId>kubernetes-assertions</artifactId>
+			<scope>test</scope>
+	    </dependency>
+	</dependencies>
+	
+	<build>
+		<defaultGoal>spring-boot:run</defaultGoal>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<!-- exclude logback configuration file -->
+				<excludes>
+					<exclude>**/logback.xml</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
+	
+</project>

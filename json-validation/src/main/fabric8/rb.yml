@@ -1,0 +1,10 @@
+apiVersion: "v1"
+kind: "RoleBinding"
+metadata:
+  name: "sample-json-validation-api"
+roleRef:
+  # Add the view role to the service account
+  name: "view"
+subjects:
+  - kind: "ServiceAccount"
+    name: "sample-json-validation-api-sa"

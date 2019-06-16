@@ -1,0 +1,703 @@
+{
+	"createVehicleSaleOffer": {
+		"vehicleSaleOffer": [
+			{
+				"channel": "YOP",
+				"saleStartTime": "2017-10-06T00:00:00Z",
+				"saleEndTime": "2017-10-07T00:00:00Z",
+				"buyItNow": false,
+				"auction": false,
+				"offerBySubmission": false,
+				"forLocalCustomers": false,
+				"forExport": false,
+				"vehicleIdent": {
+					"vinNumber": "ZAR9550000X035386",
+					"registrationNumber": "DP-494-BT",
+					"vehicleUnitNumber": 759151,
+					"registrationDate": "2015-02-16T00:00:00Z",
+					"country": "FR",
+					"vehicleType": "CR",
+					"externalReferenceID": 153081,
+					"remarketingStatus": "RTS",
+					"projectedSaleDate": "2017-09-01T00:00:00Z"
+				},
+				"vehicleTecSpecETG": {
+					"make": "ALFA ROMEO",
+					"model": "AR MITO 1.3 JTDM 85 CV",
+					"financerID": 383194,
+					"financerName": "SECURITIFLEET FRANCE",
+					"trimline": "MiTo 1.3 JTDm Start &amp;amp; Stop 85 Distinctive",
+					"engineSize": 1248,
+					"engineHorsePower": 85,
+					"engineFiscalPower": 4,
+					"engineKW": 63,
+					"fuelType": "D",
+					"bodyType": "Htb",
+					"gearType": "M",
+					"numberDoors": 3,
+					"numberGears": 5,
+					"numberSeats": 5
+				},
+				"vehicleEquipments": {
+					"vehicleEquipment": [
+						{
+							"equipmentDescription": "FPS (coupure de l'alimentation de carburant en cas de choc)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751615,
+									"equipmentCodeDescription": "SystÃ¨me anti-incendie"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "SiÃ¨ge passager avec rÃ©glage lombaire",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751199,
+									"equipmentCodeDescription": "SiÃ¨ges: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Airbags de tÃªte rideaux \"Window bags\" AV et AR",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751208,
+									"equipmentCodeDescription": "Airbags rideaux avant"
+								},
+								{
+									"equipmentCode": 751207,
+									"equipmentCodeDescription": "Airbags rideaux arriÃ¨re"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Commanduillage des portes",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753901,
+									"equipmentCodeDescription": "Verrouillage centralisÃ©"
+								},
+								{
+									"equipmentCode": 753415,
+									"equipmentCodeDescription": "Instruments supplÃ©mentaires"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Spoiler AR",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751706,
+									"equipmentCodeDescription": "Becquet arriÃ¨re"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "SystÃ¨me Infotainment VP2 avec Bluetooth",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754305,
+									"equipmentCodeDescription": "SystÃ¨me de navigation"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Nouvelle Sellerie Noire avec liserÃ© Rouge ou Gris",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754507,
+									"equipmentCodeDescription": "SiÃ¨ges en tissu"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "VDC (SystÃ¨me Ãlisation de la trajectoire) et Hill Holder",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751604,
+									"equipmentCodeDescription": "ESP (programme de stabilitÃ© Ã©lectronique)"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Nouvelle Planche de bord Noir ou Rouge Crescendo",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753799,
+									"equipmentCodeDescription": "IntÃ©rieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "RÃ©troviseivrants, Ã  rÃ©glages Ã©lectriques",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751503,
+									"equipmentCodeDescription": "RÃ©tro©rieurs dÃ©givrants"
+								},
+								{
+									"equipmentCode": 751502,
+									"equipmentCodeDescription": "RÃ©troviseurs extÃ©rieurs Ã©lectriques"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Dispositif \"Follow me Home\" (Extinction diffÃ©rÃ©e des feux)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754499,
+									"equipmentCodeDescription": "e Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Verrouillage automatique des portes en roulant",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753901,
+									"equipmentCodeDescription": "Verrouillage centralisÃ©"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Commande de tÃ©lÃ©phone et de radio au volant",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 752299,
+									"equipmentCodeDescription": "Communication de bord: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Airbags latÃ©raux AV",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751204,
+									"equipmentCodeDescription": "Airbag latÃ©ral conducteur et passager"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Cerclage des phares Chrome Brillant",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751899,
+									"equipmentCodeDescription": "Design Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "DST (direction Ã©lectrique auto adaptative)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754699,
+									"equipmentCodeDescription": "Direction: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Interrupteur de dÃ©connexion Airbag passager AV",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751299,
+									"equipmentCodeDescription": "Airbag: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Airbags conducteur et passager AV, avec capteur de prÃ©sence cÃ´tÃ© passager",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751201,
+									"equipmentCodeDescription": "Airbag conducteur"
+								},
+								{
+									"equipmentCode": 751202,
+									"equipmentCodeDescription": "Airbag passager"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Sortie d'Ã©chappement chromÃ©e",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751899,
+									"equipmentCodeDescription": "Design Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Jantes alliage 15\" design Sport",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754915,
+									"equipmentCodeDescription": "Jantes/roues en alliage lÃ©ger 15\""
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Climatisation manuelle",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 752701,
+									"equipmentCodeDescription": "Climatisation manuelle"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Ordinateur de bord",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751401,
+									"equipmentCodeDescription": "Ordinateur de bord"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Chrome line",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751899,
+									"equipmentCodeDescription": "Design Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "SiÃ¨ge AV Ã  rÃ©glage lombaire",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751137,
+									"equipmentCodeDescription": "SiÃ¨ge conducteur Ã  rÃ©glage lombaire"
+								},
+								{
+									"equipmentCode": 751138,
+									"equipmentCodeDescription": "SiÃ¨ge passager Ã  rÃ©glage lombaire"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Eclairage de la boÃ®te Ã  gants",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754411,
+									"equipmentCodeDescription": "Ãclairage intÃ©rieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Poches aumoniÃ¨res au dos des siÃ¨ges AV",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753802,
+									"equipmentCodeDescription": "DÃ©pÃ´ts en gÃ©nÃ©ral"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Jantes alliage 16\" Sport",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754911,
+									"equipmentCodeDescription": "Jantes/roues en alliage lÃ©ger 15\" ou 16\""
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Kit anti-crevaison",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754902,
+									"equipmentCodeDescription": "Kit de rÃ©paration pneus (Mobile Tyre)"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Assistance au freinage d'urgence",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751607,
+									"equipmentCodeDescription": "Assistance de freinage"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Systeme d'aide au dÃ©marrage en cÃ´te Hill Holder",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 759998,
+									"equipmentCodeDescription": "Autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Plafonnier AV Ã  extintion temporisÃ©e",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754410,
+									"equipmentCodeDescription": "Plafonnier Ã  extinction automatique"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Volant gainÃ© de cuir",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754604,
+									"equipmentCodeDescription": "Volant en cuir"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Repose-pied ergonomique Ã  cÃ´tÃ© de la pÃ©dale d'embrayage",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753899,
+									"equipmentCodeDescription": "Ãquipement intÃ©rieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "TÃ©lÃ©commande de verrouillage/dÃ©verrouillage des portes et du coffre Ã  distance",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753905,
+									"equipmentCodeDescription": "Verrouillage centralisÃ© tÃ©lÃ©commandÃ©"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Capteur d'extintion des feux",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754499,
+									"equipmentCodeDescription": "Ãclairage Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Ceintures de sÃ©curitÃ© AV et AR avec prÃ©tensionneur",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751211,
+									"equipmentCodeDescription": "Ceintures avant avec prÃ©tensionneurs"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Volant Sport 3 branches",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754602,
+									"equipmentCodeDescription": "Volant sport"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "CDC (Optimisateur de freinage en courbe)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751607,
+									"equipmentCodeDescription": "Assistance de freinage"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "RÃ©glage tridimentionnel des siÃ¨ges AV (inclinaison, hauteur et profondeur)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751195,
+									"equipmentCodeDescription": "SiÃ¨ge passager Ã  dossier rÃ©glable"
+								},
+								{
+									"equipmentCode": 751194,
+									"equipmentCodeDescription": "SiÃ¨ge conducteur Ã  dossier rÃ©glable"
+								},
+								{
+									"equipmentCode": 751185,
+									"equipmentCodeDescription": "SiÃ¨ge passager rÃ©glable en hauteur"
+								},
+								{
+									"equipmentCode": 751184,
+									"equipmentCodeDescription": "SiÃ¨ge conducteur rÃ©glable en hauteur"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Pare-soleil avec miroir de courtoisie",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753899,
+									"equipmentCodeDescription": "Ãquipement intÃ©rieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "MSR (SystÃ¨me anti-calage moteur)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 752699,
+									"equipmentCodeDescription": "Moteur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Volant rÃ©glable en hauteur et en profondeur",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754603,
+									"equipmentCodeDescription": "Volant rÃ©glable manuellement"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Ceintures de sÃ©curitÃ© AR 3 point d'ancrage",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751209,
+									"equipmentCodeDescription": "Ceinture centrale arriÃ¨re 3 points"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Airbag genoux conducteur",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751201,
+									"equipmentCodeDescription": "Airbag conducteur"
+								},
+								{
+									"equipmentCode": 751299,
+									"equipmentCodeDescription": "Airbag: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Cerclage des feux AV et AR Gris Titane",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751899,
+									"equipmentCodeDescription": "Design Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "LÃ¨ve-vitres Ã©lectriques Ã  impulsion",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754202,
+									"equipmentCodeDescription": "LÃ¨ve-vitres avant Ã©lectriques"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Capteur extÃ©rieur de tempÃ©rature",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751902,
+									"equipmentCodeDescription": "Indicateur de tempÃ©rature extÃ©rieur"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Start &amp;amp; Stop",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 755796,
+									"equipmentCodeDescription": "SystÃ¨me Start/Stop"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Radio CD MP3 avec 6 HP",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754307,
+									"equipmentCodeDescription": "Lecteur CD"
+								},
+								{
+									"equipmentCode": 754312,
+									"equipmentCodeDescription": "Lecteur MP3"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Eclairage du coffre",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754411,
+									"equipmentCodeDescription": "Ãclairage intÃ©rieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Feux AR Ã  LED",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754499,
+									"equipmentCodeDescription": "Ãclairage Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "SystÃ¨me d'accÃ¨s aisÃ© Ã  la banquette AR Easy Entry",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751109,
+									"equipmentCodeDescription": "Banquette arriÃ¨re"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Q2 Ã©lectronique",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753399,
+									"equipmentCodeDescription": "DiffÃ©rentiel: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "EBD (RÃ©partiteur de freinage)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751606,
+									"equipmentCodeDescription": "RÃ©partiteur Ã©lectronique de freinage"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Direction Ã©lectrique",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754699,
+									"equipmentCodeDescription": "Direction: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Alfa Romeo D.N.A. (Dynalic, Normal, All weather)",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 753899,
+									"equipmentCodeDescription": "Ãquipement intÃ©rieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Ouverture du coffre via logo \"push\"",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 754799,
+									"equipmentCodeDescription": "Bagages: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "RÃ©gulateur de vitesse",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 752601,
+									"equipmentCodeDescription": "RÃ©gulateur de vitesse"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Calandre AV chromÃ©e",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751899,
+									"equipmentCodeDescription": "Design Ã©xterieur: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "RÃ©troviseur asphÃ©rique cÃ´tÃ© conducteur",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751599,
+									"equipmentCodeDescription": "RÃ©troviseurs: autres"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "SystÃ¨me de contrÃ´le de pression des pneumatiques TPSM",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 751630,
+									"equipmentCodeDescription": "ContrÃ´le pression pneus (RDC)"
+								}
+							]
+						},
+						{
+							"equipmentDescription": "Filtre Ã  particules",
+							"esacoEquipment": [
+								{
+									"equipmentCode": 755797,
+									"equipmentCodeDescription": "Filtre Ã  particules"
+								}
+							]
+						}
+					]
+				},
+				"vehicleOptions": {
+					"vehicleOption": [
+						{
+							"optionDescription": "Sellerie AR 3 places avec 3 appuis-tÃªte rabattable 2/3-1/3",
+							"esacoOption": [
+								{
+									"optionCode": 754507,
+									"optionCodeDescription": "SiÃ¨ges en tissu"
+								}
+							]
+						},
+						{
+							"optionDescription": "Roue de secours taille rÃ©duite",
+							"esacoOption": [
+								{
+									"optionCode": 754913,
+									"optionCodeDescription": "Roue de secours galette"
+								}
+							]
+						},
+						{
+							"optionDescription": "Peinture Pastel Extra-sÃ©rie Blanc Spino",
+							"esacoOption": [
+								{
+									"optionCode": 752899,
+									"optionCodeDescription": "Peinture: autres"
+								}
+							]
+						},
+						{
+							"optionDescription": "Radar de recul",
+							"esacoOption": [
+								{
+									"optionCode": 751603,
+									"optionCodeDescription": "Radar de stationnement arriÃ¨re"
+								}
+							]
+						}
+					]
+				},
+				"vehicleExtInt": {
+					"upholstery": "WHITE",
+					"color": "GREY"
+				},
+				"vehicleOps": {
+					"mileage": 56868,
+					"movementStatus": "TC",
+					"isDamageOrWreck": false,
+					"vatQualifyingMargin": false,
+					"saleCenter": "BODC96",
+					"vhclAppraisal": "http://fleetbox.dekra-automotivesolutions.com/T1/F86BFF7A-004A-4BC8-9416-5CE6F8E344D0/fr",
+					"ciStation": "TLSC96"
+				},
+				"vehiclePrices": {
+					"b2BGrossPrice": 12200,
+					"b2BNetPrice": 10200
+				}
+			}
+		]
+	}
+}
