@@ -14,7 +14,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.jeannyil</groupId>
+        <groupId>com.github.jeannyil.fuse</groupId>
         <artifactId>fuse-7-springboot-demos</artifactId>
         <version>1.0.0</version>
     </parent>

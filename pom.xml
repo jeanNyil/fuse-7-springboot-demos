@@ -10,7 +10,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.jeannyil</groupId>
+	<groupId>com.github.jeannyil.fuse</groupId>
 	<artifactId>fuse-7-springboot-demos</artifactId>
 	<version>1.0.0</version>
     <packaging>pom</packaging>
@@ -281,7 +281,7 @@
     <modules>
         <module>addressbook-api</module>
 		<module>camel-amq-kubernetes-config</module>
-		<module>json-validation</module>
+		<!-- <module>json-validation</module> -->
     </modules>
 
 </project>
