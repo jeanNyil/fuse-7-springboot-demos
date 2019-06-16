@@ -10,7 +10,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-	<groupId>io.example</groupId>
+	<groupId>com.github.jeannyil</groupId>
 	<artifactId>fuse-7-springboot-demos</artifactId>
 	<version>1.0.0</version>
     <packaging>pom</packaging>
@@ -25,6 +25,7 @@
 		<fuse.version>7.3.0.fuse-730058-redhat-00001</fuse.version>
 
 		<!-- maven plugin versions -->
+		<cxf-codegen-plugin.version>3.2.7.fuse-730040-redhat-00001</cxf-codegen-plugin.version>
 		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 
