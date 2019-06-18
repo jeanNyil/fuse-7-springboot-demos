@@ -42,11 +42,11 @@ public class HttpErrorRoute extends RouteBuilder {
 		/**
 		 * Route that returns a custom error response in JSON format
 		 * The following properties are expected to be set on the incoming Camel Exchange:
-		 * <br>- errorId ({@link com.europcar.fuse.common.constants.ESBConstants#ERROR_ID})
-		 * <br>- errorDescription ({@link com.europcar.fuse.common.constants.ESBConstants#ERROR_DESCRIPTION })
-		 * <br>- errorMessage ({@link com.europcar.fuse.common.constants.ESBConstants#ERROR_MESSAGE })
-		 * <br>- httpStatusCode ({@link com.europcar.fuse.common.constants.ESBConstants#HTTP_STATUS_CODE })
-		 * <br>- httpStatusMsg ({@link com.europcar.fuse.common.constants.ESBConstants#HTTP_STATUS_MSG })
+		 * <br>- errorId ({@link com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants#ERROR_ID})
+		 * <br>- errorDescription ({@link com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants#ERROR_DESCRIPTION })
+		 * <br>- errorMessage ({@link com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants#ERROR_MESSAGE })
+		 * <br>- httpStatusCode ({@link com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants#HTTP_STATUS_CODE })
+		 * <br>- httpStatusMsg ({@link com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants#HTTP_STATUS_MSG })
 		 */
 		from("direct:custom-http-error")
 			.routeId("custom-http-error-route")

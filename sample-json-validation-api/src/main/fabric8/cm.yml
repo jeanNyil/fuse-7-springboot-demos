@@ -22,6 +22,7 @@ data:
         #use-mdc-logging: true 
         use-m-d-c-logging: true
       component:
+        # Autoconfiguration for the Camel servlet component
         servlet:
           mapping:
             contextPath: /*
