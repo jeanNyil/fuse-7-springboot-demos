@@ -223,7 +223,9 @@ $ curl -vvvL http://localhost:8080/openapi.json
 }
 ```
 
-:warning: **TO BE COMPLETED**
+- Screenshots of validation tests from *[Postman](https://www.getpostman.com/products)*
+![validateOKMembership.png](images/validateOKMembership.png)
+![validateKOMembership.png](images/validateKOMembership.png)
 
 #### OpenShift ####
 
