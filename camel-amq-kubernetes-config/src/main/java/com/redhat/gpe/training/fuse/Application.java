@@ -27,7 +27,7 @@ import org.springframework.context.annotation.ImportResource;
  * The Spring-boot main class.
  */
 /* @ComponentScan({"com.redhat.gpe.training.fuse",
-                "com.redhat.gpe.training.routes"}) */
+                "com.redhat.gpe.training.fuse.routes"}) */
 @SpringBootApplication
 @ImportResource({"classpath:spring/camel-context.xml"})
 public class Application {

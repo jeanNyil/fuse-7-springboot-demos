@@ -7,9 +7,11 @@ data:
   application.yml: |-
     # Override the configuration properties here
     amqp:
-      host: "broker-amq-headless.amq7-broker"
+      host: "broker-amq-headless.amq7-clustered-brokers"
       port: 5672
       max-connections: 1
       max-active-sessions-per-connection: 500
+    timer:
+      period-in-ms: 2000
     hello:
       message: "Welcome to Red Hat Fuse on OpenShift external configuration lab"

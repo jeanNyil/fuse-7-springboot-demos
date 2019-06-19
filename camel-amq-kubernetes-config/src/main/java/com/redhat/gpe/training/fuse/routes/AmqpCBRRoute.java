@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.routes;
+package com.redhat.gpe.training.fuse.routes;
 
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;

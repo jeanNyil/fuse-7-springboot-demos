@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.routes;
+package com.redhat.gpe.training.fuse.routes;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
@@ -29,7 +29,7 @@ public class GenerateOrderRoute extends RouteBuilder {
             .log(LoggingLevel.ERROR, "Unexpected error occured: ${exception}")
             .to(ExchangePattern.InOnly, "amqp:queue:error.queue");
 
-        from("timer:order?period=5000")
+        from("timer:order?period={{timer.period-in-ms}}")
             .routeId("generate-order-route")
             .log(LoggingLevel.INFO, "{{hello.message}}")
             .bean("orderGenerator", "generateOrder")

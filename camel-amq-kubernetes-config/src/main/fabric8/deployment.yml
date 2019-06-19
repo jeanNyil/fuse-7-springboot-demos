@@ -24,19 +24,5 @@ spec:
               cpu: "1.0"
               memory: "1Gi"
           env:
-          #- name: AMQP_HOST
-          #  value: "broker-amq-headless.amq7-broker"
-          #- name: AMQP_PORT
-          #  value: "5672"
-          #- name: AMQP_USERNAME
-          #  valueFrom:
-          #  secretKeyRef:
-          #    key: amqp-username
-          #    name: camel-amq
-          #- name: AMQP_PASSWORD
-          #  valueFrom:
-          #  secretKeyRef:
-          #    key: amqp-password
-          #    name: camel-amq
           - name: SPRING_APPLICATION_JSON
             value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
