@@ -7,7 +7,7 @@ data:
   application.yml: |-
     # Logging configuration
     logging:
-      config: "file:src/main/resources/logback.xml"
+      config: "file:/deployments/config/logback.xml"
     
     # Camel spring-boot properties
     camel:

@@ -7,12 +7,16 @@ import java.io.FileInputStream;
 import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.builder.AdviceWithRouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
+import org.apache.camel.model.RouteDefinition;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.apache.camel.test.spring.DisableJmx;
+import org.apache.camel.test.spring.UseAdviceWith;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
@@ -21,13 +25,14 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import com.github.jeannyil.fuse.jsonvalidation.Application;
 
 /**
- * Camel JSON Schema Validator component Test class
+ * ValidateMembershipRoute Test class
  */
 @RunWith(CamelSpringBootRunner.class)
 @SpringBootTest(classes = {Application.class})
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @DisableJmx(value=true)
-public class ValidateJsonRouteTest {
+@UseAdviceWith(value=true)
+public class ValidateMembershipRouteTest {
 
 	@Autowired
 	private CamelContext camelContext;
@@ -38,54 +43,83 @@ public class ValidateJsonRouteTest {
 	@EndpointInject(uri="mock:success")
 	private MockEndpoint successMockEndpoint;
 	
-	@EndpointInject(uri="mock:businessException")
-	private MockEndpoint businessExceptionMockEndpoint;
+	@EndpointInject(uri="mock:validationException")
+	private MockEndpoint validationExceptionMockEndpoint;
 	
 	@EndpointInject(uri="mock:unexpectedException")
 	private MockEndpoint unexpectedExceptionMockEndpoint;
 	
-	private final static String VALID_JSON_DATA = "src/test/resources/json-schema-validator/valid_json_data.json";
-	private final static String INVALID_JSON_DATA = "src/test/resources/json-schema-validator/invalid_json_data.json";
+	private final static String VALID_JSON_DATA = "src/test/resources/data/valid_json_data.json";
+	private final static String INVALID_JSON_DATA = "src/test/resources/data/invalid_json_data.json";
+	
+	private final static String EXPECTED_OK_VALIDATIONRESULT = "src/test/resources/data/expectedOKValidationResult.json";
 	
 	@Before
 	public void setup() throws Exception {
-		camelContext.setTracing(true);
+		RouteDefinition validateMembershipRoute = camelContext.getRouteDefinition("validate-membership-route");
+		
+		validateMembershipRoute.adviceWith(camelContext, new AdviceWithRouteBuilder() {
+			
+			@Override
+			public void configure() throws Exception {
+				// select the route node with the id=log-validateMembership-KO-response
+                // and then add the following route parts afterwards
+                weaveById("log-validateMembership-KO-response").after()
+                	.to("mock:validationException")
+            	;
+                
+                // select the route node with the id=to-validateMembership-500
+                // and then add the following route parts afterwards
+                weaveById("to-validateMembership-500").after()
+                	.to("mock:unexpectedException")
+            	;
+				
+				// add at the end of the route to route to this mock endpoint
+                weaveAddLast().to("mock:success");
+			}
+		});
+		
 		successMockEndpoint.reset();
-		businessExceptionMockEndpoint.reset();
+		validationExceptionMockEndpoint.reset();
 		unexpectedExceptionMockEndpoint.reset();
+		
+		// Start the Camel context
+		camelContext.setTracing(true);
+		camelContext.start();
 	}
 	
 	@Test
 	public void validJsonSchemaValidatorTest() throws Exception {
 		// Expectations
 		successMockEndpoint.expectedMessageCount(1);
-		businessExceptionMockEndpoint.expectedMessageCount(0);
+		validationExceptionMockEndpoint.expectedMessageCount(0);
 		unexpectedExceptionMockEndpoint.expectedMessageCount(0);
 		
-		// Test the json-schema-validator component
-		producerTemplate.sendBody("direct:test-json-schema-validator", readFile(VALID_JSON_DATA));
+		// Test the ValidateMembershipRoute
+		String validationResult = producerTemplate.requestBody("direct:validateMembership", readFile(VALID_JSON_DATA), String.class);
 		
 		// Assert expectations
 		assertTrue("There should be at least 1 Camel Exchange in successMockEndpoint!", successMockEndpoint.getExchanges().size() == 1);
 		successMockEndpoint.assertIsSatisfied();
-		businessExceptionMockEndpoint.assertIsSatisfied();
+		validationExceptionMockEndpoint.assertIsSatisfied();
 		unexpectedExceptionMockEndpoint.assertIsSatisfied();
+		JSONAssert.assertEquals(readFile(EXPECTED_OK_VALIDATIONRESULT), validationResult, true);
 	}
 	
 	@Test
 	public void invalidJsonSchemaValidatorTest() throws Exception {
 		// Expectations
 		successMockEndpoint.expectedMessageCount(0);
-		businessExceptionMockEndpoint.expectedMessageCount(1);
+		validationExceptionMockEndpoint.expectedMessageCount(1);
 		unexpectedExceptionMockEndpoint.expectedMessageCount(0);
 		
-		// Test the json-schema-validator component
-		producerTemplate.sendBody("direct:test-json-schema-validator", readFile(INVALID_JSON_DATA));
+		// Test the ValidateMembershipRoute
+		producerTemplate.sendBody("direct:validateMembership", readFile(INVALID_JSON_DATA));
 		
 		// Assert expectations
-		assertTrue("There should be at least 1 Camel Exchange in failureMockEndpoint!", businessExceptionMockEndpoint.getExchanges().size() == 1);
+		assertTrue("There should be at least 1 Camel Exchange in failureMockEndpoint!", validationExceptionMockEndpoint.getExchanges().size() == 1);
 		successMockEndpoint.assertIsSatisfied();
-		businessExceptionMockEndpoint.assertIsSatisfied();
+		validationExceptionMockEndpoint.assertIsSatisfied();
 		unexpectedExceptionMockEndpoint.assertIsSatisfied();
 	}
 	

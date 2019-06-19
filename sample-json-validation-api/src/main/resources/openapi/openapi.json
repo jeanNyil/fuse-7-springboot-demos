@@ -110,7 +110,7 @@
       },
       "title" : "Root Type for membership",
       "description" : "Membership data ",
-      "example" : "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"A\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"forcedLevelCode\": null,\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
+      "example" : "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"A\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"forcedLevelCode\": \"69\",\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
     },
     "ValidationResult" : {
       "type" : "object",
@@ -132,7 +132,7 @@
       },
       "title" : "Root Type for ValidationResult",
       "description" : "Validation Result   ",
-      "example" : "{\n    \"validationResult\": {\n        \"status\": \"OK\",\n        \"errorMessage\": \"6 errors found\"\n    }\n}"
+      "example" : "{\n    \"validationResult\": {\n        \"status\": \"KO\",\n        \"errorMessage\": \"6 errors found\"\n    }\n}"
     },
     "Error" : {
       "type" : "object",

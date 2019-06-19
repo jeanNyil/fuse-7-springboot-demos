@@ -20,6 +20,7 @@
     <!-- Properties -->
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
 
 		<!-- configure the Fuse version you want to use here -->
 		<fuse.version>7.3.0.fuse-730058-redhat-00001</fuse.version>
@@ -139,10 +140,10 @@
 			<!-- Compiler plugin enforces Java 1.8 compatibility and activates annotation processors -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 
@@ -153,6 +154,7 @@
 				<executions>
 					<execution>
 						<goals>
+							<goal>build-info</goal>
 							<goal>repackage</goal>
 						</goals>
 					</execution>
