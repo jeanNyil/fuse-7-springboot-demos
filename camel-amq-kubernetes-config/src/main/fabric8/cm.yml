@@ -5,9 +5,12 @@ metadata:
   name: camel-amq
 data:
   application.yml: |-
+    # Logging configuration
+    logging:
+      config: "file:/deployments/config/logback.xml"
     # Override the configuration properties here
     amqp:
-      host: "broker-amq-headless.amq7-clustered-brokers"
+      host: "broker-amq-headless.amq7-basic-broker"
       port: 5672
       max-connections: 1
       max-active-sessions-per-connection: 500
@@ -15,3 +18,24 @@ data:
       period-in-ms: 2000
     hello:
       message: "Welcome to Red Hat Fuse on OpenShift external configuration lab"
+  logback.xml: |-
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE xml>
+    <configuration>
+    
+      <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <!-- standard encoder
+        <encoder>
+          <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>  -->
+        <!-- JSON logging encoder -->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+      </appender>
+    
+      <root level="info">
+        <appender-ref ref="STDOUT" />
+      </root>
+    
+    </configuration>

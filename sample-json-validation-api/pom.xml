@@ -82,18 +82,4 @@
 	    </dependency>
 	</dependencies>
 	
-	<build>
-		<defaultGoal>spring-boot:run</defaultGoal>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<!-- exclude logback configuration file -->
-				<excludes>
-					<exclude>**/logback.xml</exclude>
-				</excludes>
-			</resource>
-		</resources>
-	</build>
-	
 </project>

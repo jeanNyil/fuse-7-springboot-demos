@@ -1,81 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.github.jeannyil.fuse</groupId>
-    <artifactId>fuse-7-springboot-demos</artifactId>
-    <version>1.0.0</version>
-  </parent>
+	<parent>
+		<groupId>com.github.jeannyil.fuse</groupId>
+		<artifactId>fuse-7-springboot-demos</artifactId>
+		<version>1.0.0</version>
+	</parent>
 
-  <groupId>com.redhat.gpe.training</groupId>
-  <artifactId>camel-amq-kubernetes-config</artifactId>
-  <packaging>jar</packaging>
+	<groupId>com.redhat.gpe.training</groupId>
+	<artifactId>camel-amq-kubernetes-config</artifactId>
+	<packaging>jar</packaging>
 
+	<name>Fabric8 :: Quickstarts :: Spring Boot :: Camel, ActiveMQ and Kubernetes configuration</name>
+	<description>Spring Boot example running a Camel route connecting to ActiveMQ. Configuration is managed through secret and configmap kubernetes resources</description>
 
-  <name>Fabric8 :: Quickstarts :: Spring Boot :: Camel, ActiveMQ and Kubernetes configuration</name>
-  <description>Spring Boot example running a Camel route connecting to ActiveMQ. Configuration is managed through secret and configmap kubernetes resources</description>
+	<dependencies>
 
-  <dependencies>
+		<!-- For AMQP protocol -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-amqp-starter</artifactId>
+		</dependency>
 
-    <!-- For AMQP protocol -->
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-amqp-starter</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-jms-pool</artifactId>
+		</dependency>
 
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-jms-pool</artifactId>
-    </dependency>
+		<!-- Add the Fuse Console (HawtIO) dependency in the POM file -->
+		<!-- <dependency>
+			<groupId>io.hawt</groupId>
+			<artifactId>hawtio-springboot</artifactId>
+		</dependency> -->
 
-    <!-- Add the Fuse Console (HawtIO) dependency in the POM file -->
-    <!-- <dependency>
-      <groupId>io.hawt</groupId>
-      <artifactId>hawtio-springboot</artifactId>
-    </dependency> -->
+		<!-- Spring-cloud-kubernetes -->
+		<dependency>
+			<groupId>io.fabric8</groupId>
+			<artifactId>spring-cloud-kubernetes-core</artifactId>
+		</dependency>
 
-    <!-- Spring-cloud-kubernetes -->
-    <dependency>
-      <groupId>io.fabric8</groupId>
-      <artifactId>spring-cloud-kubernetes-core</artifactId>
-    </dependency>
+		<!-- For JSON logging -->
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>5.3</version>
+		</dependency>
 
-    <!-- For JSON logging -->
-    <dependency>
-      <groupId>net.logstash.logback</groupId>
-      <artifactId>logstash-logback-encoder</artifactId>
-      <version>5.3</version>
-    </dependency>
-
-  </dependencies>
-
-  <build>
-    <testResources>
-      <testResource>
-        <directory>src/test/resources</directory>
-        <filtering>true</filtering>
-      </testResource>
-    </testResources>
-
-    <plugins>
-      <plugin>
-        <groupId>org.jboss.redhat-fuse</groupId>
-        <artifactId>fabric8-maven-plugin</artifactId>
-        <version>${fuse.version}</version>
-        <configuration>
-          <verbose>true</verbose>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>resource</goal>
-              <goal>build</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+	</dependencies>
+	
 </project>

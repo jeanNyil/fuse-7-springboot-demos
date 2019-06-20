@@ -6,11 +6,11 @@
     <!-- encoders are assigned the type
          ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
     <!-- standard encoder -->
-    <!-- <encoder>
+    <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-    </encoder> -->
+    </encoder>
     <!-- JSON logging encoder -->
-    <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    <!--  <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>  -->
   </appender>
 
   <root level="info">
