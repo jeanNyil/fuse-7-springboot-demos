@@ -223,7 +223,9 @@ $ curl -vvvL http://localhost:8080/openapi.json
 }
 ```
 
-- Screenshots of validation tests from *[Postman](https://www.getpostman.com/products)*
+- Using *[Postman](https://www.getpostman.com/products)*
+  - You may import the embedded [tests Postman collection](./tests/Sample_JSON_Validation_API.postman_collection.json)
+  - Screenshots samples of validation tests using *[Postman](https://www.getpostman.com/products)*
 ![validateOKMembership.png](images/validateOKMembership.png)
 ![validateKOMembership.png](images/validateKOMembership.png)
 
