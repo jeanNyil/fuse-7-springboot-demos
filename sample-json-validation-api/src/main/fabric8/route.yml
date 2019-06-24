@@ -1,5 +1,5 @@
 spec:
-  host: sample-json-validation-api.apps.cfe1.example.opentlc.com
+  host: sample-json-validation-api.apps.69ac.example.opentlc.com
   port:
     targetPort: 8080
   to:
