@@ -57,7 +57,7 @@ public class SampleJsonValidationApiRoute extends RouteBuilder {
 			
 			// Gets the OpenAPI document for this service
 			.get("openapi.json")
-				.id("get-version-api-route")
+				.id("get-openapi-doc-route")
 				.description("Gets the OpenAPI document for this service")
 				.route()
 					.log(LoggingLevel.INFO, logName, ">>> ${routeId} - IN: headers:[${headers}] - body:[${body}]").id("log-openapi-doc-request")
@@ -77,7 +77,7 @@ public class SampleJsonValidationApiRoute extends RouteBuilder {
 				
 			// Validates a `Membership` instance
 			.post("/validateMembership")
-				.id("view-ba-api-route")
+				.id("validation-api-route")
 				.description("Validates a `Membership` instance")
 				.param()
 					.name("body")
