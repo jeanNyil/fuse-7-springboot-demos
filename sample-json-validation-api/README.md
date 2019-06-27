@@ -11,7 +11,7 @@ Sample JSON Validation API implemented by following a contract-first approach.
 **Run the following command to build the project**:
 
 ```
-mvn clean package
+mvn clean package -Dfabric8.skip
 ```
 
 ## Run locally ##

@@ -5,10 +5,10 @@ Their aim is to provide small, specific and working examples that can be used fo
 * [camel-amq-kubernetes-config](camel-amq-kubernetes-config)
 * [sample-json-validation-api](sample-json-validation-api)
 
-## Build ##
+## Build all modules##
 
 ```
-mvn clean install
+mvn clean install -Dfabric8.skip
 ```
 
 ### :warning: TODO

@@ -9,7 +9,7 @@ Besides, the _logback_ logging framework is configured to use the [logstach-logb
 
 The example can be built with
 
-    mvn clean package
+    mvn clean package -Dfabric8.skip
 
 ### Running the example locally
 
