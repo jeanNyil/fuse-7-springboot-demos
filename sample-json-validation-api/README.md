@@ -5,8 +5,13 @@ Sample JSON Validation API implemented by following a contract-first approach.
 
 ## Build ##
 
+**Prerequisite**: 
+- Make sure [fuse-common-resources](../fuse-common-resources/README.md) module jar has already been built and installed in your local maven repository
+
+**Run the following command to build the project**:
+
 ```
-mvn clean install
+mvn clean package
 ```
 
 ## Run locally ##

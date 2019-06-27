@@ -5,5 +5,11 @@ Their aim is to provide small, specific and working examples that can be used fo
 * [camel-amq-kubernetes-config](camel-amq-kubernetes-config)
 * [sample-json-validation-api](sample-json-validation-api)
 
+## Build ##
+
+```
+mvn clean install
+```
+
 ### :warning: TODO
 * Complete the [camel-amq-kubernetes-config README](camel-amq-kubernetes-config/README.md) module README

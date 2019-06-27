@@ -9,7 +9,7 @@ Besides, the _logback_ logging framework is configured to use the [logstach-logb
 
 The example can be built with
 
-    mvn clean install
+    mvn clean package
 
 ### Running the example locally
 
