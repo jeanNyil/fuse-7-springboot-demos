@@ -75,14 +75,14 @@ public class SampleJsonValidationApiRoute extends RouteBuilder {
 		 */
 		rest().id("sample-json-validation-restapi")
 				
-			// Validates a `Membership` instance
+			// Validates a `Membership` JSON instance
 			.post("/validateMembership")
 				.id("validation-api-route")
-				.description("Validates a `Membership` instance")
+				.description("Validates a `Membership` JSON instance")
 				.param()
 					.name("body")
 					.type(RestParamType.body)
-					.description("A new `Membership` to be created.")
+					.description("A `Membership` JSON instance to be validated.")
 					.dataType("string")
 					.required(true)
 				.endParam()
