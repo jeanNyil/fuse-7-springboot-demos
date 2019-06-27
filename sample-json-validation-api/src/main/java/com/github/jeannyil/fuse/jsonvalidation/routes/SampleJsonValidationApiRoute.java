@@ -10,7 +10,7 @@ import org.apache.camel.model.rest.RestParamType;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.github.jeannyil.fuse.jsonvalidation.models.ErrorResponse;
+import com.github.jeannyil.fuse.common.models.ErrorResponse;
 
 /**
  * Exposes the Sample JSON Validation RESTful API
@@ -76,8 +76,8 @@ public class SampleJsonValidationApiRoute extends RouteBuilder {
 		rest().id("sample-json-validation-restapi")
 				
 			// Validates a `Membership` JSON instance
-			.post("/validateMembership")
-				.id("validation-api-route")
+			.post("/validateMembershipJSON")
+				.id("json-validation-api-route")
 				.description("Validates a `Membership` JSON instance")
 				.param()
 					.name("body")
@@ -89,20 +89,20 @@ public class SampleJsonValidationApiRoute extends RouteBuilder {
 				.responseMessage()
 					.code(HttpStatus.OK.value())
 					.message(HttpStatus.OK.getReasonPhrase())
-					.responseModel(com.github.jeannyil.fuse.jsonvalidation.models.ValidationResult.class)
+					.responseModel(com.github.jeannyil.fuse.common.models.ValidationResult.class)
 				.endResponseMessage()
 				.responseMessage()
 					.code(HttpStatus.BAD_REQUEST.value())
 					.message(HttpStatus.BAD_REQUEST.getReasonPhrase())
-					.responseModel(com.github.jeannyil.fuse.jsonvalidation.models.ValidationResult.class)
+					.responseModel(com.github.jeannyil.fuse.common.models.ValidationResult.class)
 				.endResponseMessage()
 				.responseMessage()
 					.code(HttpStatus.INTERNAL_SERVER_ERROR.value())
 					.message(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
 					.responseModel(ErrorResponse.class)
 				.endResponseMessage()
-				// call the ValidateMembershipRoute
-				.to("direct:validateMembership")
+				// call the ValidateMembershipJSONRoute
+				.to("direct:validateMembershipJSON")
 		;
 			
 	}

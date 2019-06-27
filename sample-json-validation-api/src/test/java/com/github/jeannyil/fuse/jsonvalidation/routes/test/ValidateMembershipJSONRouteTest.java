@@ -32,7 +32,7 @@ import com.github.jeannyil.fuse.jsonvalidation.Application;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @DisableJmx(value=true)
 @UseAdviceWith(value=true)
-public class ValidateMembershipRouteTest {
+public class ValidateMembershipJSONRouteTest {
 
 	@Autowired
 	private CamelContext camelContext;
@@ -56,21 +56,21 @@ public class ValidateMembershipRouteTest {
 	
 	@Before
 	public void setup() throws Exception {
-		RouteDefinition validateMembershipRoute = camelContext.getRouteDefinition("validate-membership-route");
+		RouteDefinition validateMembershipJSONRoute = camelContext.getRouteDefinition("validate-membership-json-route");
 		
-		validateMembershipRoute.adviceWith(camelContext, new AdviceWithRouteBuilder() {
+		validateMembershipJSONRoute.adviceWith(camelContext, new AdviceWithRouteBuilder() {
 			
 			@Override
 			public void configure() throws Exception {
 				// select the route node with the id=log-validateMembership-KO-response
                 // and then add the following route parts afterwards
-                weaveById("log-validateMembership-KO-response").after()
+                weaveById("log-validateMembershipJSON-KO-response").after()
                 	.to("mock:validationException")
             	;
                 
                 // select the route node with the id=to-validateMembership-500
                 // and then add the following route parts afterwards
-                weaveById("to-validateMembership-500").after()
+                weaveById("to-validateMembershipJSON-500").after()
                 	.to("mock:unexpectedException")
             	;
 				
@@ -96,7 +96,7 @@ public class ValidateMembershipRouteTest {
 		unexpectedExceptionMockEndpoint.expectedMessageCount(0);
 		
 		// Test the ValidateMembershipRoute
-		String validationResult = producerTemplate.requestBody("direct:validateMembership", readFile(VALID_JSON_DATA), String.class);
+		String validationResult = producerTemplate.requestBody("direct:validateMembershipJSON", readFile(VALID_JSON_DATA), String.class);
 		
 		// Assert expectations
 		assertTrue("There should be at least 1 Camel Exchange in successMockEndpoint!", successMockEndpoint.getExchanges().size() == 1);
@@ -114,7 +114,7 @@ public class ValidateMembershipRouteTest {
 		unexpectedExceptionMockEndpoint.expectedMessageCount(0);
 		
 		// Test the ValidateMembershipRoute
-		producerTemplate.sendBody("direct:validateMembership", readFile(INVALID_JSON_DATA));
+		producerTemplate.sendBody("direct:validateMembershipJSON", readFile(INVALID_JSON_DATA));
 		
 		// Assert expectations
 		assertTrue("There should be at least 1 Camel Exchange in failureMockEndpoint!", validationExceptionMockEndpoint.getExchanges().size() == 1);

@@ -1,4 +1,4 @@
-package com.github.jeannyil.fuse.jsonvalidation.beans.test;
+package com.github.jeannyil.fuse.common.beans.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -8,8 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 
-import com.github.jeannyil.fuse.jsonvalidation.beans.ErrorResponseHelper;
-import com.github.jeannyil.fuse.jsonvalidation.models.ErrorResponse;
+import com.github.jeannyil.fuse.common.beans.ErrorResponseHelper;
+import com.github.jeannyil.fuse.common.models.ErrorResponse;
 
 public class ErrorResponseHelperTest {
 	

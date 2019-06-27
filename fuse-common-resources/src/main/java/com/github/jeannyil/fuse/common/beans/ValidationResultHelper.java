@@ -1,9 +1,9 @@
-package com.github.jeannyil.fuse.jsonvalidation.beans;
+package com.github.jeannyil.fuse.common.beans;
 
 import org.springframework.stereotype.Component;
 
-import com.github.jeannyil.fuse.jsonvalidation.models.ValidationResult;
-import com.github.jeannyil.fuse.jsonvalidation.models.ValidationResult_;
+import com.github.jeannyil.fuse.common.models.ValidationResult;
+import com.github.jeannyil.fuse.common.models.ValidationResult_;
 
 /**
  * 

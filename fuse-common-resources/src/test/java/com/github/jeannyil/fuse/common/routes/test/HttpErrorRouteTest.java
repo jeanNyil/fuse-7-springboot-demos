@@ -1,4 +1,4 @@
-package com.github.jeannyil.fuse.jsonvalidation.routes.test;
+package com.github.jeannyil.fuse.common.routes.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -26,11 +26,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-import com.github.jeannyil.fuse.jsonvalidation.Application;
-import com.github.jeannyil.fuse.jsonvalidation.constants.ESBConstants;
+import com.github.jeannyil.fuse.common.constants.ESBConstants;
 
 @RunWith(CamelSpringBootRunner.class)
-@SpringBootTest(classes = {Application.class})
+@SpringBootTest(classes = {TestApplication.class})
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @DisableJmx(value=true)
 @UseAdviceWith(value=true)

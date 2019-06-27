@@ -1,11 +1,11 @@
-package com.github.jeannyil.fuse.jsonvalidation.beans;
+package com.github.jeannyil.fuse.common.beans;
 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
-import com.github.jeannyil.fuse.jsonvalidation.models.Error;
-import com.github.jeannyil.fuse.jsonvalidation.models.ErrorResponse;
+import com.github.jeannyil.fuse.common.models.Error;
+import com.github.jeannyil.fuse.common.models.ErrorResponse;
 
 /**
  * 

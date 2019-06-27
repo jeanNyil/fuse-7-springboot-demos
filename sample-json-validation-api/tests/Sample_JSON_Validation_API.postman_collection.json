@@ -22,14 +22,14 @@
 					"raw": "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"A\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"forcedLevelCode\": \"69\",\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/validateMembership",
+					"raw": "http://localhost:8080/validateMembershipJSON",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"validateMembership"
+						"validateMembershipJSON"
 					]
 				}
 			},
@@ -52,14 +52,14 @@
 					"raw": "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"BADSTATUS\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/validateMembership",
+					"raw": "http://localhost:8080/validateMembershipJSON",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"validateMembership"
+						"validateMembershipJSON"
 					]
 				}
 			},

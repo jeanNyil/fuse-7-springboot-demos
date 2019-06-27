@@ -1,4 +1,4 @@
-package com.github.jeannyil.fuse.jsonvalidation.constants;
+package com.github.jeannyil.fuse.common.constants;
 
 /**
  * Common constants

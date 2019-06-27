@@ -1,0 +1,8 @@
+# Logging configuration
+logging:
+  config: "classpath:logback-test.xml"
+  
+# Service configuration
+info:
+  api:
+    name: "UnitTest"
