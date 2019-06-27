@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "validateOKMembership",
+			"name": "validateOKMembershipJSON",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -36,7 +36,7 @@
 			"response": []
 		},
 		{
-			"name": "validateKOMembership",
+			"name": "validateKOMembershipJSON",
 			"request": {
 				"method": "POST",
 				"header": [
