@@ -205,7 +205,7 @@
     	<module>fuse-common-resources</module>
 		<module>camel-amq-kubernetes-config</module>
 		<module>sample-json-validation-api</module>
-		<!--  <module>sample-xml-validation-api</module>  -->
+		<module>sample-xml-validation-api</module>
     </modules>
 
 </project>

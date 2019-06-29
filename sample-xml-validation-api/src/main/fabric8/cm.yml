@@ -1,0 +1,65 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  # Must match the 'spring.application.name' property of the application
+  name: sample-xml-validation-api
+data:
+  application.yml: |-
+    # Logging configuration
+    logging:
+      config: "file:/deployments/config/logback.xml"
+    
+    # Camel spring-boot properties
+    camel:
+      springboot:
+        # The Camel context name
+        name: sample-xml-validation-api
+        # Enable stream caching
+        stream-caching-enabled: true
+        # Enable breadcrumb
+        use-breadcrumb: true
+        # Enable MDC logging
+        #use-mdc-logging: true 
+        use-m-d-c-logging: true
+      component:
+        # Autoconfiguration for the Camel servlet component
+        servlet:
+          mapping:
+            contextPath: /*
+    
+    # Binding health checks to a different port
+    management:
+      port: 8081
+      
+    # Server listening port
+    server:
+      port: 8080
+    
+    # disable all management enpoints except health
+    endpoints:
+      enabled: false
+      health:
+        enabled: true
+  logback.xml: |-
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE xml>
+    <configuration scan="true" scanPeriod="30 seconds">
+    
+      <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <!-- standard encoder -->
+        <encoder>
+          <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!-- JSON encoder 
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+          <includeMdc>true</includeMdc>
+        </encoder> -->
+      </appender>
+    
+      <root level="info">
+        <appender-ref ref="STDOUT" />
+      </root>
+    
+    </configuration>

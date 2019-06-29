@@ -1,0 +1,34 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      serviceAccountName: "sample-xml-validation-api-sa"
+      containers:
+        - name: "sample-xml-validation-api"
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: "256Mi"
+            limits:
+              cpu: "0.5"
+              memory: "256Mi"
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":10 }}}'
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: "sample-xml-validation-api"
+              mountPath: "/deployments/config"
+      volumes:
+        - name: "sample-xml-validation-api"
+          configMap:
+            name: "sample-xml-validation-api"
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+     automatic: true
+     containerNames:
+     - sample-xml-validation-api
+     from:
+       kind: ImageStreamTag
+       name: sample-xml-validation-api:latest

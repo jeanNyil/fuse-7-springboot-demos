@@ -1,0 +1,9 @@
+{
+	"error": {
+		"id": "500",
+		"description": "Internal Server Error",
+		"messages": [
+			"java.lang.Exception: Mocked error message"
+		]
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"error": {
+		"id": "not_found",
+		"description": "Resource not found",
+		"messages": [
+			"Test error message"
+		]
+	}
+}

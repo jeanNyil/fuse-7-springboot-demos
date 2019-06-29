@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:membership xmlns:p="http://www.github.com/jeanNyil/schemas/membership/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <p:requestType>API</p:requestType>
+  <p:requestID>5948</p:requestID>
+  <p:memberID>85623617</p:memberID>
+  <p:status>A</p:status>
+  <p:enrolmentDate>2019-06-29</p:enrolmentDate>
+  <p:changedBy>jeanNyil</p:changedBy>
+  <p:forcedLevelCode>69</p:forcedLevelCode>
+  <p:vipOnInvitation>Y</p:vipOnInvitation>
+  <p:startDate>2019-06-29</p:startDate>
+  <p:endDate>2100-06-29</p:endDate>
+</p:membership>

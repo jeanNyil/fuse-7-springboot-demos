@@ -1,0 +1,8 @@
+spec:
+  host: sample-xml-validation-api.apps.69ac.example.opentlc.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: sample-xml-validation-api
+    weight: 100
