@@ -1,7 +1,7 @@
-# Red Hat Fuse implementation of the _Sample JSON Validation API_
+# Red Hat Fuse implementation of the _Sample XML Validation API_
 
 ## API Description ##
-Sample JSON Validation API implemented by following a contract-first approach.
+Sample XML Validation API implemented by following a contract-first approach.
 
 ## Build ##
 
