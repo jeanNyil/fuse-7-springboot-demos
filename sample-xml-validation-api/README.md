@@ -23,8 +23,8 @@ mvn clean spring-boot:run -Dfabric8.skip=true
 ## Deploy on OpenShift ##
 
 **Prerequisite**: 
-- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.3 imagestreams* is available and running.
-- Please see the [Red Hat Fuse 7.3 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.3/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
+- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.4 imagestreams* is available and running.
+- Please see the [Red Hat Fuse 7.4 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.4/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
 
 **Instructions**:
 1. Update the [src/main/fabric8/route.yml](src/main/fabric8/route.yml) descriptor and adapt the route `host` according to your *OpenShift cluster*.
