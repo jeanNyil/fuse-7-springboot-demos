@@ -17,7 +17,7 @@ mvn clean package -Dfabric8.skip
 ## Run locally ##
 
 ```
-mvn clean spring-boot:run -Dfabric8.skip=true
+mvn clean spring-boot:run -Dfabric8.skip
 ```
 
 ## Deploy on OpenShift ##
