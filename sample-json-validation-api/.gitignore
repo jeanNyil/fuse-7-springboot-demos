@@ -33,3 +33,4 @@ hs_err_pid*
 *.iml
 /.vscode
 /.factorypath
+/.apt_generated_tests/
