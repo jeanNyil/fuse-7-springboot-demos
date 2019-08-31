@@ -38,10 +38,10 @@ mvn clean fabric8:deploy
 
 #### Locally ####
 
-- Retrieve the OpenAPI document: `curl http://localhost:8080/openapi.json`
+- Retrieve the OpenAPI document: `curl http://localhost:8080/validateMembershipJSON/openapi.json`
 
 ```
-$ curl http://localhost:8080/openapi.json
+$ curl http://localhost:8080/validateMembershipJSON/openapi.json
 {
     "swagger": "2.0",
     "info": {
@@ -241,4 +241,4 @@ $ curl http://localhost:8080/openapi.json
 
 Same instructions as above but replace the `localhost:8080` with your *OpenShift route for the service*.
 
-For example, `http://sample-json-validation-api.apps.69ac.example.opentlc.com/openapi.json` will return the OpenAPI document used to implement the service.
+For example, `http://sample-json-validation-api.apps.69ac.example.opentlc.com/validateMembershipJSON/openapi.json` will return the OpenAPI document used to implement the service.
