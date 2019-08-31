@@ -44,19 +44,18 @@ public class SampleXmlValidationApiRoute extends RouteBuilder {
 			.bindingMode(RestBindingMode.off) // RESTful responses will be explicitly marshaled for logging purposes
 			.dataFormatProperty("prettyPrint", "true")
 			// Add the context path for the OpenAPI documentation:
-            .apiContextPath("/openapi.json")
+            //.apiContextPath("/openapi.json")
 		;
 		
 		/**
 		 * REST endpoint for the Service OpenAPI document 
 		 */
 		rest().id("openapi-document-restapi")
-			.path("/")
 			.consumes(MediaType.TEXT_XML)
 			.produces(MediaType.APPLICATION_JSON)
 			
 			// Gets the OpenAPI document for this service
-			.get("openapi.json")
+			.get("/validateMembershipXML/openapi.json")
 				.id("get-openapi-doc-route")
 				.description("Gets the OpenAPI document for this service")
 				.route()

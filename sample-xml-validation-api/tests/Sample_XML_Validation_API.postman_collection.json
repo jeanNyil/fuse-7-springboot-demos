@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "67bb1e01-be1b-40d4-bf13-66d57b7b5d56",
+		"_postman_id": "cba77596-bff5-42fd-80a6-98d12b8536b3",
 		"name": "Sample XML Validation API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -71,13 +71,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/openapi.json",
+					"raw": "http://localhost:8080/validateMembershipXML/openapi.json",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"validateMembershipXML",
 						"openapi.json"
 					]
 				}
