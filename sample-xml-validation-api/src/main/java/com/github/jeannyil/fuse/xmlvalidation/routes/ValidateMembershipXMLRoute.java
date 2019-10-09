@@ -53,9 +53,9 @@ public class ValidateMembershipXMLRoute extends RouteBuilder {
 		 */
 		from("direct:validateMembershipXML")
 			.routeId("validate-membership-xml-route")
-			.log(">>> ${routeId} - Before XML Schema Validation - Camel Exchange message: in.headers[${headers}] - in.body[${body}]")
+			.log(LoggingLevel.INFO, logName, ">>> ${routeId} - Before XML Schema Validation - Camel Exchange message: in.headers[${headers}] - in.body[${body}]")
 			.to("validator:xml-schema/membership.xsd")
-			.log(">>> ${routeId} - XML Schema validation is successful")
+			.log(LoggingLevel.INFO, logName, ">>> ${routeId} - XML Schema validation is successful")
 			.setBody()
 				.method("validationResultHelper", "generateOKValidationResult()")
 				.id("set-OK-validationResult")

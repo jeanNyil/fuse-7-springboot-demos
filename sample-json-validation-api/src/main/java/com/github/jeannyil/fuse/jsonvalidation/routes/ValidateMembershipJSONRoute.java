@@ -53,9 +53,9 @@ public class ValidateMembershipJSONRoute extends RouteBuilder {
 		 */
 		from("direct:validateMembershipJSON")
 			.routeId("validate-membership-json-route")
-			.log(">>> ${routeId} - Before JSON Schema Validation - Camel Exchange message: in.headers[${headers}] - in.body[${body}]")
+			.log(LoggingLevel.INFO, logName, ">>> ${routeId} - Before JSON Schema Validation - Camel Exchange message: in.headers[${headers}] - in.body[${body}]")
 			.to("json-validator:json-schema/membership-schema.json?synchronous=true")
-			.log(">>> ${routeId} - JSON Schema validation is successful")
+			.log(LoggingLevel.INFO, logName, ">>> ${routeId} - JSON Schema validation is successful")
 			.setBody()
 				.method("validationResultHelper", "generateOKValidationResult()")
 				.id("set-OK-validationResult")
