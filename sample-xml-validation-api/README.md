@@ -38,135 +38,228 @@ mvn clean fabric8:deploy
 
 #### Locally ####
 
-- Retrieve the OpenAPI document: `curl http://localhost:8080/validateMembershipXML/openapi.json`
+- Retrieve the OpenAPI specification in JSON format: `curl http://localhost:8080/validateMembershipXML/api-doc` or `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.json`
 
 ```
-$ curl http://localhost:8080/validateMembershipXML/openapi.json
+$ curl http://localhost:8080/validateMembershipXML/api-doc
 {
-    "swagger": "2.0",
-    "info": {
-        "title": "Sample XML Validation API",
-        "description": "A simple API to test the Camel XML validator component",
-        "contact": {
-            "name": "Jean Nyilimbibi"
-        },
-        "license": {
-            "name": "MIT License",
-            "url": "https://opensource.org/licenses/MIT"
-        },
-        "version": "1.0.0"
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "A simple API to test the Camel XML validator component",
+    "version" : "1.0.0",
+    "title" : "Sample XML Validation API",
+    "contact" : {
+      "name" : "Jean Nyilimbibi"
     },
-    "consumes": [
-        "text/xml"
-    ],
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/validateMembershipXML": {
-            "post": {
-                "summary": "Validate Membership XML instance",
-                "description": "Validates a `Membership` instance",
-                "operationId": "validateMembershipXML",
-                "consumes": [
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "A `Membership` XML instance to be validated.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "`Membership` XML data validated",
-                        "schema": {
-                            "$ref": "#/definitions/ValidationResult"
-                        }
-                    },
-                    "400": {
-                        "description": "`Membership` XML data not valid",
-                        "schema": {
-                            "$ref": "#/definitions/ValidationResult"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal server error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
+    "license" : {
+      "name" : "MIT License",
+      "url" : "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host" : "0.0.0.0:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/validateMembershipXML" : {
+      "post" : {
+        "summary" : "Validates a `Membership` XML instance",
+        "operationId" : "sample-json-validation-restapi",
+        "consumes" : [ "text/xml" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A `Membership` XML instance to be validated.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "x-examples" : {
+            "text/xml" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<p:membership xmlns:p=\"http://www.github.com/jeanNyil/schemas/membership/v1.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <p:requestType>API</p:requestType>\n  <p:requestID>5948</p:requestID>\n  <p:memberID>85623617</p:memberID>\n  <p:status>A</p:status>\n  <p:enrolmentDate>2019-06-29</p:enrolmentDate>\n  <p:changedBy>jeanNyil</p:changedBy>\n  <p:forcedLevelCode>69</p:forcedLevelCode>\n  <p:vipOnInvitation>Y</p:vipOnInvitation>\n  <p:startDate>2019-06-29</p:startDate>\n  <p:endDate>2100-06-29</p:endDate>\n</p:membership>"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ValidationResult"
+            },
+            "examples" : {
+              "application/json" : "{\n    \"validationResult\": {\n        \"status\": \"OK\"\n    }\n}"
             }
-        }
-    },
-    "definitions": {
-        "ValidationResult": {
-            "title": "Root Type for ValidationResult",
-            "description": "Validation Result   ",
-            "type": "object",
-            "properties": {
-                "validationResult": {
-                    "type": "object",
-                    "properties": {
-                        "status": {
-                            "maxLength": 2,
-                            "minLength": 2,
-                            "enum": [
-                                "OK",
-                                "KO"
-                            ],
-                            "type": "string"
-                        },
-                        "errorMessage": {
-                            "type": "string"
-                        }
-                    }
-                }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/ValidationResult"
             },
-            "example": "{\n\t\"validationResult\": {\n\t\t\"status\": \"KO\",\n\t\t\"errorMessage\": \"Validation failed for: com.sun.org.apache.xerces.internal.jaxp.validation.SimpleXMLSchema@5f86796e\\nerrors: [\\norg.xml.sax.SAXParseException: cvc-datatype-valid.1.2.1: '20-06-29' is not a valid value for 'date'., Line : 7, Column : 46\\norg.xml.sax.SAXParseException: cvc-type.3.1.3: The value '20-06-29' of element 'p:enrolmentDate' is not valid., Line : 7, Column : 46\\n]. Exchange[ID-jeansmacbookair-home-1561803539861-1-1]\"\n\t}\n}"
-        },
-        "Error": {
-            "title": "Root Type for Error",
-            "description": "Error message structure",
-            "type": "object",
-            "properties": {
-                "error": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "messages": {
-                            "type": "array",
-                            "items": {}
-                        }
-                    }
-                }
+            "examples" : {
+              "application/json" : "{\n \"validationResult\": {\n  \"status\": \"KO\",\n  \"errorMessage\": \"Validation failed for: com.sun.org.apache.xerces.internal.jaxp.validation.SimpleXMLSchema@5f86796e\\nerrors: [\\norg.xml.sax.SAXParseException: cvc-datatype-valid.1.2.1: '20-06-29' is not a valid value for 'date'., Line : 7, Column : 46\\norg.xml.sax.SAXParseException: cvc-type.3.1.3: The value '20-06-29' of element 'p:enrolmentDate' is not valid., Line : 7, Column : 46\\n]. Exchange[ID-jeansmacbookair-home-1561803539861-1-1]\"\n }\n}"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/ErrorResponse"
             },
-            "example": "{\n\t\"error\": {\n\t\t\"id\": \"500\",\n\t\t\"description\": \"Internal Server Error\",\n\t\t\"messages\": [\n\t\t\t\"java.lang.Exception: Mocked error message\"\n\t\t]\n\t}\n}"
+            "examples" : {
+              "application/json" : "{\n \"error\": {\n  \"id\": \"500\",\n  \"description\": \"Internal Server Error\",\n  \"messages\": [\n   \"java.lang.Exception: Mocked error message\"\n  ]\n }\n}"
+            }
+          }
         }
+      }
+    }
+  },
+  "definitions" : {
+    "ValidationResult_" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "type" : "string"
+        },
+        "errorMessage" : {
+          "type" : "string"
+        }
+      }
     },
-    "tags": [
-        {
-            "name": "RESTDSL"
-        },
-        {
-            "name": "fuse7springboot"
-        },
-        {
-            "name": "xmlvalidator"
+    "ValidationResult" : {
+      "type" : "object",
+      "properties" : {
+        "validationResult" : {
+          "$ref" : "#/definitions/ValidationResult_"
         }
-    ]
+      }
+    },
+    "Error" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "messages" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ErrorResponse" : {
+      "type" : "object",
+      "properties" : {
+        "error" : {
+          "$ref" : "#/definitions/Error"
+        }
+      }
+    }
+  }
 }
+```
+
+- Retrieve the OpenAPI specification in YAML format: `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml`
+
+```
+$ curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml
+---
+swagger: "2.0"
+info:
+  description: "A simple API to test the Camel XML validator component"
+  version: "1.0.0"
+  title: "Sample XML Validation API"
+  contact:
+    name: "Jean Nyilimbibi"
+  license:
+    name: "MIT License"
+    url: "https://opensource.org/licenses/MIT"
+host: "0.0.0.0:8080"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /validateMembershipXML:
+    post:
+      summary: "Validates a `Membership` XML instance"
+      operationId: "sample-json-validation-restapi"
+      consumes:
+      - "text/xml"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "A `Membership` XML instance to be validated."
+        required: true
+        schema:
+          type: "string"
+        x-examples:
+          text/xml: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<p:membership xmlns:p=\"\
+            http://www.github.com/jeanNyil/schemas/membership/v1.0\" xmlns:xsi=\"\
+            http://www.w3.org/2001/XMLSchema-instance\">\n  <p:requestType>API</p:requestType>\n\
+            \  <p:requestID>5948</p:requestID>\n  <p:memberID>85623617</p:memberID>\n\
+            \  <p:status>A</p:status>\n  <p:enrolmentDate>2019-06-29</p:enrolmentDate>\n\
+            \  <p:changedBy>jeanNyil</p:changedBy>\n  <p:forcedLevelCode>69</p:forcedLevelCode>\n\
+            \  <p:vipOnInvitation>Y</p:vipOnInvitation>\n  <p:startDate>2019-06-29</p:startDate>\n\
+            \  <p:endDate>2100-06-29</p:endDate>\n</p:membership>"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/ValidationResult"
+          examples:
+            application/json: "{\n    \"validationResult\": {\n        \"status\"\
+              : \"OK\"\n    }\n}"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/ValidationResult"
+          examples:
+            application/json: "{\n \"validationResult\": {\n  \"status\": \"KO\",\n\
+              \  \"errorMessage\": \"Validation failed for: com.sun.org.apache.xerces.internal.jaxp.validation.SimpleXMLSchema@5f86796e\\\
+              nerrors: [\\norg.xml.sax.SAXParseException: cvc-datatype-valid.1.2.1:\
+              \ '20-06-29' is not a valid value for 'date'., Line : 7, Column : 46\\\
+              norg.xml.sax.SAXParseException: cvc-type.3.1.3: The value '20-06-29'\
+              \ of element 'p:enrolmentDate' is not valid., Line : 7, Column : 46\\\
+              n]. Exchange[ID-jeansmacbookair-home-1561803539861-1-1]\"\n }\n}"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+          examples:
+            application/json: "{\n \"error\": {\n  \"id\": \"500\",\n  \"description\"\
+              : \"Internal Server Error\",\n  \"messages\": [\n   \"java.lang.Exception:\
+              \ Mocked error message\"\n  ]\n }\n}"
+definitions:
+  ValidationResult_:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      errorMessage:
+        type: "string"
+  ValidationResult:
+    type: "object"
+    properties:
+      validationResult:
+        $ref: "#/definitions/ValidationResult_"
+  Error:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      description:
+        type: "string"
+      messages:
+        type: "array"
+        items:
+          type: "string"
+  ErrorResponse:
+    type: "object"
+    properties:
+      error:
+        $ref: "#/definitions/Error"
 ```
 
 - Using *[Postman](https://www.getpostman.com/products)*
@@ -179,4 +272,4 @@ $ curl http://localhost:8080/validateMembershipXML/openapi.json
 
 Same instructions as above but replace the `localhost:8080` with your *OpenShift route for the service*.
 
-For example, `http://sample-xml-validation-api.apps.8b78.example.opentlc.com/validateMembershipXML/openapi.json` will return the OpenAPI document used to implement the service.
+For example, `http://sample-xml-validation-api.apps.8b78.example.opentlc.com/validateMembershipXML/api-doc/swagger.yaml` will return the OpenAPI specification of the service in YAML format.
