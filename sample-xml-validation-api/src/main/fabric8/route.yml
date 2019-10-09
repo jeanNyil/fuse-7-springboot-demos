@@ -1,5 +1,5 @@
 spec:
-  host: sample-xml-validation-api.apps.69ac.example.opentlc.com
+  host: sample-xml-validation-api.apps.8b78.example.opentlc.com
   port:
     targetPort: 8080
   to:
