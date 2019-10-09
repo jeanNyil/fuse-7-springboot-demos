@@ -241,4 +241,4 @@ $ curl http://localhost:8080/validateMembershipJSON/openapi.json
 
 Same instructions as above but replace the `localhost:8080` with your *OpenShift route for the service*.
 
-For example, `http://sample-json-validation-api.apps.69ac.example.opentlc.com/validateMembershipJSON/openapi.json` will return the OpenAPI document used to implement the service.
+For example, `http://sample-json-validation-api.apps.8b78.example.opentlc.com/validateMembershipJSON/openapi.json` will return the OpenAPI document used to implement the service.
