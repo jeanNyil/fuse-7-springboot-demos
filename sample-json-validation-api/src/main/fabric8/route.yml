@@ -6,7 +6,7 @@ metadata:
 spec:
   host: sample-json-validation-api.apps.25c0.example.opentlc.com
   port:
-    targetPort: 8080
+    targetPort: http
   to:
     kind: Service
     name: sample-json-validation-api
