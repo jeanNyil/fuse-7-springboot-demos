@@ -263,4 +263,4 @@ definitions:
 
 Same instructions as above but replace the `localhost:8080` with your *OpenShift route for the service*.
 
-For example, `http://sample-json-validation-api.apps.8b78.example.opentlc.com/validateMembershipJSON/api-doc/swagger.yaml` will return the OpenAPI specification of the service in YAML format.
+For example, `http://sample-json-validation-api.apps.25c0.example.opentlc.com/validateMembershipJSON/api-doc/swagger.yaml` will return the OpenAPI specification of the service in YAML format.
