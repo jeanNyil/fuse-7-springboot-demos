@@ -2,10 +2,10 @@
 # https://access.redhat.com/documentation/en-us/red_hat_fuse/7.4/html/designing_apis_with_apicurito/threescale-discover-service
 metadata:
   labels:
-    discovery.3scale.net/discoverable : "true"
+    discovery.3scale.net: "true"
   annotations:
-    discovery.3scale.net/discovery-version : "v1"
-    discovery.3scale.net/scheme : "http"
-    discovery.3scale.net/path : "/"
-    discovery.3scale.net/port : "8080"
-    discovery.3scale.net/description-path : "/validateMembershipJSON/api-doc"
+    discovery.3scale.net/discovery-version: "v1"
+    discovery.3scale.net/scheme: "http"
+    discovery.3scale.net/path: "/"
+    discovery.3scale.net/port: "8080"
+    discovery.3scale.net/description-path: "/validateMembershipJSON/api-doc"
