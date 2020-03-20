@@ -24,8 +24,14 @@ spec:
               cpu: "0.5"
               memory: "256Mi"
           env:
-          - name: SPRING_APPLICATION_JSON
-            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":5 }}}'
+            - name: SPRING_APPLICATION_JSON
+              value: '{"server":{"undertow":{"io-threads":1, "worker-threads":5 }}}'
+            - name: AB_JOLOKIA_AUTH_OPENSHIFT
+              value: false
+            - name: AB_JOLOKIA_PASSWORD_RANDOM
+              value: false
+            - name: AB_JOLOKIA_HTTPS
+              value: true
           imagePullPolicy: Always
           volumeMounts:
             - name: "camel-amq"
