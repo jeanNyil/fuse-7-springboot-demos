@@ -39,16 +39,16 @@
                 <when id="route-when-uk">
                     <xpath>/order/customer/country = 'UK'</xpath>
                     <log id="route-log-uk" message="Sending order ${file:name} to the UK"/>
-                    <to id="route-to-uk-orders" pattern="InOnly" uri="amqp:queue:uk.orders"/>
+                    <to id="route-to-uk-orders" pattern="InOnly" uri="amqp:queue:uk.orders?timeToLive=60000"/>
                 </when>
                 <when id="route-when-us">
                     <xpath>/order/customer/country = 'US'</xpath>
                     <log id="route-log-us" message="Sending order ${file:name} to the US"/>
-                    <to id="route-to-us-orders" pattern="InOnly" uri="amqp:queue:us.orders"/>
+                    <to id="route-to-us-orders" pattern="InOnly" uri="amqp:queue:us.orders?timeToLive=60000"/>
                 </when>
                 <otherwise id="route-when-other-country">
                     <log id="route-log-other" message="Sending order ${file:name} to another country"/>
-                    <to id="route-to-other-orders" pattern="InOnly" uri="amqp:queue:other.orders"/>
+                    <to id="route-to-other-orders" pattern="InOnly" uri="amqp:queue:other.orders?timeToLive=60000"/>
                 </otherwise>
             </choice>
             <log id="route-final-log" message="Done processing ${file:name}"/>
