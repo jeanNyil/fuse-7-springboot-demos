@@ -18,7 +18,7 @@ spec:
               mountPath: "/etc/secrets/camel-amq"
           resources:
             requests:
-              cpu: "0.2"
+              cpu: "0.03"
               memory: "256Mi"
             limits:
               cpu: "0.5"

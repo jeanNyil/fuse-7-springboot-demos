@@ -37,8 +37,8 @@ amqp:
   max-connections: 1
   max-active-sessions-per-connection: 500
   # username and password can be overriden via the camel-amq secret object 
-  username: "amquser"
-  password: "R3dH4t1!"
+  username: "amq-user"
+  password: "P@ssw0rd"
     
 # Timer period configuration (can be overriden via the camel-amq configmap object)
 timer:

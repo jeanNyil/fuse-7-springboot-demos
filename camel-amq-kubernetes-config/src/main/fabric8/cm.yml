@@ -10,9 +10,9 @@ data:
       config: "file:/deployments/config/logback.xml"
     # Override the configuration properties here
     amqp:
-      host: "broker-amq-headless.amq7-basic-broker"
+      host: "amq-ssl-broker-amqp-1-svc.amq7-broker-cluster.svc"
       port: 5672
-      max-connections: 1
+      max-connections: 2
       max-active-sessions-per-connection: 500
     timer:
       period-in-ms: 2000
@@ -26,12 +26,12 @@ data:
       <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-        <!-- standard encoder
+        <!-- standard encoder -->
         <encoder>
           <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>  -->
-        <!-- JSON logging encoder -->
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </encoder>
+        <!-- JSON logging encoder
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>  -->
       </appender>
     
       <root level="info">
