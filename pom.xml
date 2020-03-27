@@ -23,12 +23,14 @@
 		<java.version>1.8</java.version>
 
 		<!-- configure the Fuse version you want to use here -->
-		<fuse.version>7.5.0.fuse-750029-redhat-00002</fuse.version>
+		<fuse.version>7.6.0.fuse-760027-redhat-00001</fuse.version>
 
 		<!-- maven plugin versions -->
-		<cxf-codegen-plugin.version>3.2.7.fuse-750027-redhat-00001</cxf-codegen-plugin.version>
+		<cxf-codegen-plugin.version>3.2.7.fuse-760026-redhat-00001</cxf-codegen-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+		<logstash-logback-encoder.version>6.3</logstash-logback-encoder.version>
+		<jsonassert.version>1.5.0</jsonassert.version>
 	</properties>
 
 	<dependencyManagement>
@@ -76,7 +78,7 @@
 	    <dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
-			<version>5.3</version>
+			<version>${logstash-logback-encoder.version}</version>
 	    </dependency>
 
 		<!-- testing -->
@@ -93,7 +95,7 @@
 		<dependency>
 		    <groupId>org.skyscreamer</groupId>
 		    <artifactId>jsonassert</artifactId>
-		    <version>1.5.0</version>
+		    <version>${jsonassert.version}</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
