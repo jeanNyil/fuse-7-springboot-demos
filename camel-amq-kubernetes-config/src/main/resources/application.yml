@@ -1,25 +1,28 @@
 # Binding health checks to an internal port
 management:
+  server:
     port: 8081
-
-# disable all management enpoints except jolokia, hawtio and health endpoints
-endpoints:
-    enabled: false
+    
+  # Disable all management enpoints except jolokia, hawtio, health and spring-cloud restart endpoints
+  enabled-by-default: false
+  endpoint:
     jolokia:
-        enabled: true
-        sensitive: false
+      enabled: true
+      sensitive: false
     hawtio:
-        enabled: true
-        sensitive: false
+      enabled: true
+      sensitive: false
     health:
-        enabled: true
+      enabled: true
+    restart:
+      enabled: true
 
 # Disable embedded HawtIO authentication
 hawtio:
   authenticationEnabled: false
 
 logging:
-  config: "classpath:logback.xml"
+  config: "file:src/main/resources/logback.xml"
 
 # The name of the Camel app
 camel:
@@ -32,8 +35,8 @@ camel:
 amqp:
   # host, port, max-connections and max-active-sessions-per-connection can be overriden 
   # via the camel-amq configmap object 
-  host: "52.57.154.248"
-  port: 30001
+  host: amq-ssl-broker-amqp-1-svc-rte-amq7-broker-cluster.apps.325c.example.opentlc.com
+  port: 443
   max-connections: 1
   max-active-sessions-per-connection: 500
   # username and password can be overriden via the camel-amq secret object 

@@ -7,7 +7,7 @@ spec:
         - name: "sample-json-validation-api"
           resources:
             requests:
-              cpu: "0.2"
+              cpu: "0.03"
               memory: "256Mi"
             limits:
               cpu: "0.5"
