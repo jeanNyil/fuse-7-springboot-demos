@@ -32,7 +32,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-json-validator</artifactId>
+			<artifactId>camel-json-validator-starter</artifactId>
 		</dependency>
 		
 		<!-- Common demo resources
@@ -41,39 +41,6 @@
 	    	<groupId>com.github.jeannyil.fuse</groupId>
 	    	<artifactId>fuse-common-resources</artifactId>
 	    	<version>[1.0.0,2.0.0)</version>
-	    </dependency>
-
-		<!-- testing -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-test-spring</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.skyscreamer</groupId>
-		    <artifactId>jsonassert</artifactId>
-		    <version>1.5.0</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.arquillian.junit</groupId>
-			<artifactId>arquillian-junit-container</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.arquillian.cube</groupId>
-			<artifactId>arquillian-cube-openshift</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.fabric8</groupId>
-			<artifactId>kubernetes-assertions</artifactId>
-			<scope>test</scope>
 	    </dependency>
 	</dependencies>
 	
