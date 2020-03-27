@@ -35,19 +35,6 @@
 			<artifactId>hawtio-springboot</artifactId>
 		</dependency> -->
 
-		<!-- Spring-cloud-kubernetes -->
-		<dependency>
-			<groupId>io.fabric8</groupId>
-			<artifactId>spring-cloud-kubernetes-core</artifactId>
-		</dependency>
-
-		<!-- For JSON logging -->
-		<dependency>
-			<groupId>net.logstash.logback</groupId>
-			<artifactId>logstash-logback-encoder</artifactId>
-			<version>5.3</version>
-		</dependency>
-
 	</dependencies>
 	
 	<build>
