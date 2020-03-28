@@ -3,9 +3,11 @@ management:
   server:
     port: 8081
     
-  # Disable all management enpoints except jolokia, hawtio, health and spring-cloud restart endpoints
+  # Disable all management enpoints except info, jolokia, hawtio, health, metrics and spring-cloud restart endpoints
   enabled-by-default: false
   endpoint:
+    info:
+      enabled: true
     jolokia:
       enabled: true
       sensitive: false
@@ -14,8 +16,16 @@ management:
       sensitive: false
     health:
       enabled: true
+    metrics:
+      enabled: true
     restart:
       enabled: true
+
+  # Expose info, health and metrics endpoints
+  endpoints:
+    web:
+      exposure:
+        include: info,health,metrics
 
 # Disable embedded HawtIO authentication
 hawtio:

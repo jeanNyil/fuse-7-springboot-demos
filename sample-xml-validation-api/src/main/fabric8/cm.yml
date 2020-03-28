@@ -32,13 +32,23 @@ data:
       server:
         port: 8081
         
-      # Disable all management enpoints except health and spring-cloud restart endpoints
+      # Disable all management enpoints except info, health, metrics and spring-cloud restart endpoints
       enabled-by-default: false
       endpoint:
+        info:
+          enabled: true
         health:
+          enabled: true
+        metrics:
           enabled: true
         restart:
           enabled: true
+
+      # Expose info, health and metrics endpoints
+      endpoints:
+        web:
+          exposure:
+            include: info,health,metrics
     
     # Server listening port
     server:
