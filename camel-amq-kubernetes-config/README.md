@@ -34,12 +34,12 @@ Then find the name of the pod that runs this quickstart, and output the logs fro
 
     oc logs <name of pod>
 
-You can also use the openshift [web console](https://docs.openshift.com/enterprise/3.1/getting_started/developers/developers_console.html#tutorial-video) to manage the
+You can also use the OpenShift [web console](https://docs.openshift.com/enterprise/3.1/getting_started/developers/developers_console.html#tutorial-video) to manage the
 running pods, and view logs and much more.
 
 ### Integration Testing
 
-The example includes a [Arquillian Cube Openshift](https://github.com/arquillian/arquillian-cube/tree/master/openshift) OpenShift Integration Test. 
+The example includes a [Arquillian Cube OpenShift](https://github.com/arquillian/arquillian-cube/tree/master/openshift) OpenShift Integration Test. 
 Once the container image has been built and deployed in OpenShift, the integration test can be run with:
 
     mvn test -Dtest=*KT

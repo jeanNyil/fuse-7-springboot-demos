@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Configuration parameters filled in from application.yml and overridden using env variables, configmaps or
- * secrets on Openshift.
+ * secrets on OpenShift.
  */
 @Configuration
 @ConfigurationProperties(prefix = "hello")
