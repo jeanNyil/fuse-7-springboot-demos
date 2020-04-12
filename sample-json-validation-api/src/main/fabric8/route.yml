@@ -4,7 +4,7 @@ metadata:
     # https://docs.openshift.com/container-platform/3.11/install_config/configuring_routing.html
     haproxy.router.openshift.io/timeout: 5s
 spec:
-  host: sample-json-validation-api.apps.325c.example.opentlc.com
+  host: sample-json-validation-api.apps.f82c.example.opentlc.com
   port:
     targetPort: http
   to:
