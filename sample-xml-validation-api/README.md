@@ -272,4 +272,4 @@ definitions:
 
 Same instructions as above but replace the `localhost:8080` with your *OpenShift route for the service*.
 
-For example, `http://sample-xml-validation-api.apps.f82c.example.opentlc.com/validateMembershipXML/api-doc/swagger.yaml` will return the OpenAPI specification of the service in YAML format.
+For example, `http://sample-xml-validation-api.apps.cluster-4e2c.sandbox1596.opentlc.com/validateMembershipXML/api-doc/swagger.yaml` will return the OpenAPI specification of the service in YAML format.
