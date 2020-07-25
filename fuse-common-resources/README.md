@@ -10,6 +10,6 @@ Library of common resources used by the Red Hat Fuse Spring-Boot demo projects
 
 ## Build ##
 
-```
+```zsh
 mvn clean install
 ```

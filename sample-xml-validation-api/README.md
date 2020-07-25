@@ -10,13 +10,13 @@ Sample XML Validation API implemented by following a contract-first approach.
 
 **Run the following command to build the project**:
 
-```
+```zsh
 mvn clean package -Dfabric8.skip
 ```
 
 ## Run locally ##
 
-```
+```zsh
 mvn clean spring-boot:run -Dfabric8.skip
 ```
 
@@ -30,7 +30,7 @@ mvn clean spring-boot:run -Dfabric8.skip
 1. Update the [src/main/fabric8/route.yml](src/main/fabric8/route.yml) descriptor and adapt the route `host` according to your *OpenShift cluster*.
 2. Run the *Fabric8 Maven Plugin* goal to deploy the Red Hat Fuse application onto your *OpenShift cluster*.
 
-```
+```zsh
 mvn clean fabric8:deploy
 ```
 
@@ -40,8 +40,10 @@ mvn clean fabric8:deploy
 
 - Retrieve the OpenAPI specification in JSON format: `curl http://localhost:8080/validateMembershipXML/api-doc` or `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.json`
 
-```
+```zsh
 $ curl http://localhost:8080/validateMembershipXML/api-doc
+```
+```json
 {
   "swagger" : "2.0",
   "info" : {
@@ -161,8 +163,10 @@ $ curl http://localhost:8080/validateMembershipXML/api-doc
 
 - Retrieve the OpenAPI specification in YAML format: `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml`
 
-```
+```zsh
 $ curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml
+```
+```yaml
 ---
 swagger: "2.0"
 info:
