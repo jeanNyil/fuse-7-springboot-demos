@@ -42,7 +42,6 @@ public class Application {
             new JmsConnectionFactory(config.getUsername(), 
                         config.getPassword(), 
                         "amqps://"+ config.getHost() + ":" + config.getPort() + "?transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000");
-        qpid.setTopicPrefix("topic://");
 
         PooledConnectionFactory factory = new PooledConnectionFactory();
         factory.setConnectionFactory(qpid);
