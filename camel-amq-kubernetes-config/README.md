@@ -18,8 +18,8 @@ The example can be built with
 ### Running the example in OpenShift
 
 It is assumed that:
-- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.6 imagestreams* is available and running.
-- Please see the [Red Hat Fuse 7.6 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.6/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
+- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.7 imagestreams* is available and running.
+- Please see the [Red Hat Fuse 7.7 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.7/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
 - The Red Hat AMQ 7 product should already be installed and running on your OpenShift installation with an SSL-enabled AMQP acceptor.
 
 Then the following command will package your app and run it on OpenShift:
