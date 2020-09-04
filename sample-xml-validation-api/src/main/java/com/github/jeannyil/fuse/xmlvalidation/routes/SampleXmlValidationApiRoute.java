@@ -92,7 +92,7 @@ public class SampleXmlValidationApiRoute extends RouteBuilder {
 		/**
 		 * REST endpoint for the Sample XML Validation RESTful API 
 		 */
-		rest().id("sample-json-validation-restapi")
+		rest().id("sample-xml-validation-restapi")
 			.consumes(MediaType.TEXT_XML)
 			.produces(MediaType.APPLICATION_JSON)
 				
