@@ -19,10 +19,10 @@ spec:
           resources:
             requests:
               cpu: "0.03"
-              memory: "256Mi"
+              memory: "512Mi"
             limits:
               cpu: "0.5"
-              memory: "256Mi"
+              memory: "512Mi"
           env:
             - name: SPRING_APPLICATION_JSON
               value: '{"server":{"undertow":{"io-threads":1, "worker-threads":5 }}}'
