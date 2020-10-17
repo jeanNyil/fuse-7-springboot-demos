@@ -17,6 +17,12 @@
 	<name>Sample XML Validation API</name>
 
 	<dependencies>
+		<!-- Enable Micrometer prometheus endpoint -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+
 		<!-- Camel -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>

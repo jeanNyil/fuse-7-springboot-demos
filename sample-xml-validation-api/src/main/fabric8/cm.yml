@@ -41,6 +41,8 @@ data:
           enabled: true
         metrics:
           enabled: true
+        prometheus:
+          enabled: true
         restart:
           enabled: true
 
@@ -48,7 +50,7 @@ data:
       endpoints:
         web:
           exposure:
-            include: info,health,metrics
+            include: info,health,metrics,prometheus
     
     # Server listening port
     server:
