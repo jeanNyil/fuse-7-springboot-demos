@@ -7,6 +7,11 @@ spring:
       reload:
         # Enable live reload on ConfigMap change (disabled for Secrets by default)
         enabled: true
+        # Possible strategies:
+        # - refresh (default): only configuration beans annotated with @ConfigurationProperties 
+        #                      or @RefreshScope are reloaded
+        # - restart_context: the whole Spring ApplicationContext is gracefully restarted
+        # - shutdown: the Spring ApplicationContext is shut down to activate a restart of the container.
         strategy: restart-context
       secrets:
         paths: /etc/secrets/camel-amq

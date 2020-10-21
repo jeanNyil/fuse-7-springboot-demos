@@ -3,19 +3,8 @@ spec:
   template:
     spec:
       serviceAccountName: "camel-amq-sa"
-      volumes:
-        - name: "camel-amq"
-          secret:
-            # The secret must be created before deploying this application
-            secretName: "camel-amq"
       containers:
         - name: "camel-amq-kubernetes-config"
-          volumeMounts:
-            - name: "camel-amq"
-              readOnly: true
-              # Mount the secret where spring-cloud-kubernetes is configured to read it
-              # see src/main/resources/bootstrap.yml
-              mountPath: "/etc/secrets/camel-amq"
           resources:
             requests:
               cpu: "0.03"
@@ -36,7 +25,16 @@ spec:
           volumeMounts:
             - name: "camel-amq"
               mountPath: "/deployments/config"
+            - name: "camel-amq-secret"
+              readOnly: true
+              # Mount the secret where spring-cloud-kubernetes is configured to read it
+              # see src/main/resources/bootstrap.yml
+              mountPath: "/etc/secrets/camel-amq"
       volumes:
         - name: "camel-amq"
           configMap:
             name: "camel-amq"
+        - name: "camel-amq-secret"
+          secret:
+            # The secret must be created before deploying this application
+            secretName: "camel-amq-secret"
