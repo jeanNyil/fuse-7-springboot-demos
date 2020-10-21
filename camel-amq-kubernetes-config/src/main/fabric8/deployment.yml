@@ -9,7 +9,7 @@ spec:
             # The secret must be created before deploying this application
             secretName: "camel-amq"
       containers:
-        -
+        - name: "camel-amq-kubernetes-config"
           volumeMounts:
             - name: "camel-amq"
               readOnly: true
