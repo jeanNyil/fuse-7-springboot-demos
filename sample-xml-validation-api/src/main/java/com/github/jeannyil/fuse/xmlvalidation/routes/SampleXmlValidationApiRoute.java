@@ -60,7 +60,6 @@ public class SampleXmlValidationApiRoute extends RouteBuilder {
 				.apiProperty("api.contact.name", "Jean Nyilimbibi")
 				.apiProperty("api.license.name", "MIT License")
 				.apiProperty("api.license.url", "https://opensource.org/licenses/MIT")
-                .apiProperty("cors", "true")
 		;
 		
 		/**

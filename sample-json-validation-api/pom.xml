@@ -41,7 +41,25 @@
 	    	<groupId>com.github.jeannyil.fuse</groupId>
 	    	<artifactId>fuse-common-resources</artifactId>
 	    	<version>[1.0.0,2.0.0)</version>
-	    </dependency>
+		</dependency>
+		
+		<!-- wrong versin referenced in the BOM for io.swagger:
+			 1.5.24.fuse-780022-redhat-00001 instead of 1.5.24.fuse-780018 -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.24.fuse-780018</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-core</artifactId>
+			<version>1.5.24.fuse-780018</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>1.5.24.fuse-780018</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -68,6 +86,20 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <rerunFailingTestsCount>15</rerunFailingTestsCount>
+                    <argLine>-DenableImageStreamDetection=true</argLine>
+                    <excludes>
+                        <exclude>**/*KT.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
 
 			<plugin>
 				<groupId>org.jboss.redhat-fuse</groupId>
