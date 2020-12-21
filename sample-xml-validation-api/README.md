@@ -38,10 +38,10 @@ mvn clean fabric8:deploy
 
 #### Locally ####
 
-- Retrieve the OpenAPI specification in JSON format: `curl http://localhost:8080/validateMembershipXML/api-doc` or `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.json`
+- Retrieve the OpenAPI specification in JSON format: `curl -H 'Accept: application/json' http://localhost:8080/validateMembershipXML/api-doc` or `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.json`
 
 ```zsh
-$ curl http://localhost:8080/validateMembershipXML/api-doc
+$ curl -H 'Accept: application/json' http://localhost:8080/validateMembershipXML/api-doc
 ```
 ```json
 {
@@ -161,10 +161,10 @@ $ curl http://localhost:8080/validateMembershipXML/api-doc
 }
 ```
 
-- Retrieve the OpenAPI specification in YAML format: `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml`
+- Retrieve the OpenAPI specification in YAML format: `curl -H 'Accept: text/yaml' http://localhost:8080/validateMembershipXML/api-doc` or `curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml`
 
 ```zsh
-$ curl http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml
+$ curl -H 'Accept: text/yaml' http://localhost:8080/validateMembershipXML/api-doc
 ```
 ```yaml
 ---
