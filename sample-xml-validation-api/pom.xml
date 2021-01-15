@@ -44,24 +44,6 @@
 	    	<artifactId>fuse-common-resources</artifactId>
 	    	<version>[1.0.0,2.0.0)</version>
 		</dependency>
-
-		<!-- wrong versin referenced in the BOM for io.swagger:
-			 1.5.24.fuse-780022-redhat-00001 instead of 1.5.24.fuse-780018 -->
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>1.5.24.fuse-780018</version>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-core</artifactId>
-			<version>1.5.24.fuse-780018</version>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-jaxrs</artifactId>
-			<version>1.5.24.fuse-780018</version>
-		</dependency>
 	</dependencies>
 	
 	<build>
