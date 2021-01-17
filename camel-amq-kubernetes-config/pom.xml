@@ -25,9 +25,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-jms-pool</artifactId>
-		</dependency>
+            <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
+            <version>${pooled-jms.version}</version>
+        </dependency>
 
 		<!-- Add the Fuse Console (HawtIO) dependency in the POM file -->
 		<!-- <dependency>

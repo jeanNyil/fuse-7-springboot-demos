@@ -15,7 +15,7 @@
  */
 package com.redhat.gpe.training.fuse;
 
-import org.apache.activemq.jms.pool.PooledConnectionFactory;
+import org.messaginghub.pooled.jms.JmsPoolConnectionFactory;
 import org.apache.camel.component.amqp.AMQPComponent;
 import org.apache.qpid.jms.JmsConnectionFactory;
 import org.springframework.boot.SpringApplication;
@@ -43,10 +43,11 @@ public class Application {
                         config.getPassword(), 
                         "amqps://"+ config.getHost() + ":" + config.getPort() + "?transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000");
 
-        PooledConnectionFactory factory = new PooledConnectionFactory();
+        JmsPoolConnectionFactory factory = new JmsPoolConnectionFactory();
         factory.setConnectionFactory(qpid);
-        factory.setMaximumActiveSessionPerConnection(config.getMaxActiveSessionsPerConnection());
+        factory.setMaxSessionsPerConnection(config.getMaxActiveSessionsPerConnection());
         factory.setMaxConnections(config.getMaxConnections());
+        factory.setUseAnonymousProducers(false); 
 
         return new AMQPComponent(factory);
     }

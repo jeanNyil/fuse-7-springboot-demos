@@ -26,11 +26,14 @@
 		<!-- configure the Fuse version you want to use here -->
 		<fuse.version>7.8.0.fuse-sb2-780038-redhat-00001</fuse.version>
 
-		<!-- maven plugin versions -->
+		<!-- Other dependencies versions -->
+		<jsonassert.version>1.5.0</jsonassert.version>
+		<logstash-logback-encoder.version>6.5</logstash-logback-encoder.version>
+		<pooled-jms.version>1.1.1.redhat-00003</pooled-jms.version>
+
+		<!-- Plugin versions -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-		<logstash-logback-encoder.version>6.5</logstash-logback-encoder.version>
-		<jsonassert.version>1.5.0</jsonassert.version>
 	</properties>
 
 	<dependencyManagement>
