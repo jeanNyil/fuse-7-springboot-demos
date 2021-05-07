@@ -2,6 +2,7 @@ package com.github.jeannyil.fuse.xmlvalidation.routes;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
@@ -52,34 +53,30 @@ public class SampleXmlValidationApiRoute extends RouteBuilder {
 			.port("{{server.port}}")
 			.contextPath("/")
             // Add information for the generated Open API Specification
-            .apiContextPath("/validateMembershipXML/api-doc")
-            	.apiContextRouteId("api-doc-route")
-                .apiProperty("api.title", "Sample XML Validation API")
-				.apiProperty("api.description", "A simple API to test the Camel XML validator component")
-				.apiProperty("api.version", buildProperties.getVersion())
-				.apiProperty("api.contact.name", "Jean Nyilimbibi")
-				.apiProperty("api.license.name", "MIT License")
-				.apiProperty("api.license.url", "https://opensource.org/licenses/MIT")
-				.apiProperty("api.specification.contentType.json", "application/json")
-				.apiProperty("api.specification.contentType.yaml", "text/yaml")
-				.apiProperty("cors", "true")
+            // .apiContextPath("/validateMembershipXML/api-doc")
+            // 	.apiContextRouteId("api-doc-route")
+            //     .apiProperty("api.title", "Sample XML Validation API")
+			// 	.apiProperty("api.description", "A simple API to test the Camel XML validator component")
+			// 	.apiProperty("api.version", buildProperties.getVersion())
+			// 	.apiProperty("api.contact.name", "Jean Nyilimbibi")
+			// 	.apiProperty("api.license.name", "MIT License")
+			// 	.apiProperty("api.license.url", "https://opensource.org/licenses/MIT")
+			// 	.apiProperty("api.specification.contentType.json", "application/json")
+			// 	.apiProperty("api.specification.contentType.yaml", "text/yaml")
+			// 	.apiProperty("cors", "true")
 		;
 		
 		/**
 		 * REST endpoint for the Service OpenAPI document 
-		 
+		 */
 		rest().id("openapi-document-restapi")
 			.produces(MediaType.APPLICATION_JSON)
-			
+			.enableCORS(true)
+		
 			// Gets the OpenAPI document for this service
-			.get("/validateMembershipXML/openapi.json")
-				.id("get-openapi-doc-route")
-				.description("Gets the OpenAPI document for this service")
-				.responseMessage()
-					.code(HttpStatus.OK.value())
-					.message(HttpStatus.OK.getReasonPhrase())
-					.responseModel(com.github.jeannyil.fuse.common.models.ValidationResult.class)
-				.endResponseMessage()
+			.get("openapi.json")
+				.id("get-openapi-spec-route")
+				.description("Gets the OpenAPI document for this service in JSON format")
 				.route()
 					.log(LoggingLevel.INFO, logName, ">>> ${routeId} - IN: headers:[${headers}] - body:[${body}]").id("log-openapi-doc-request")
 					.setHeader(Exchange.CONTENT_TYPE, constant("application/vnd.oai.openapi+json")).id("set-content-type")
@@ -88,8 +85,7 @@ public class SampleXmlValidationApiRoute extends RouteBuilder {
 						.id("setBody-for-openapi-document")
 					.log(LoggingLevel.INFO, logName, ">>> ${routeId} - OUT: headers:[${headers}] - body:[${body}]").id("log-openapi-doc-response")
 				.end()
-			.endRest()
-		; */
+		;
 		
 		/**
 		 * REST endpoint for the Sample XML Validation RESTful API 
