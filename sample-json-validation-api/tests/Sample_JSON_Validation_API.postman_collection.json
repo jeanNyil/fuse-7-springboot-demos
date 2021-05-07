@@ -13,24 +13,8 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "user-key",
-						"value": "d0809e7ded87068cc27bd56be81be914",
 						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "app_id",
-						"value": "9adb7592",
-						"type": "text"
-					},
-					{
-						"key": "app_key",
-						"value": "e03380ed3bde3c34302ba04db17d3e8e",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -38,7 +22,7 @@
 					"raw": "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"A\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"forcedLevelCode\": \"69\",\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/validateMembershipJSON?",
+					"raw": "http://localhost:8080/validateMembershipJSON",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -46,13 +30,6 @@
 					"port": "8080",
 					"path": [
 						"validateMembershipJSON"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "6bf088b03851c9c555cc678cccf55ac5",
-							"disabled": true
-						}
 					]
 				}
 			},
@@ -68,22 +45,6 @@
 						"name": "Content-Type",
 						"type": "text",
 						"value": "application/json"
-					},
-					{
-						"key": "user-key",
-						"value": "0f4a42297e08ee994e43a226a56a5f28",
-						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "app_key",
-						"value": "3e6fcdb1150304f362f663fcfee4b282",
-						"type": "text"
-					},
-					{
-						"key": "app_id",
-						"value": "a2364f8f",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -91,7 +52,7 @@
 					"raw": "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"BADSTATUS\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/validateMembershipJSON?",
+					"raw": "http://localhost:8080/validateMembershipJSON",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -99,103 +60,36 @@
 					"port": "8080",
 					"path": [
 						"validateMembershipJSON"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "6bf088b03851c9c555cc678cccf55ac5",
-							"disabled": true
-						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get OpenAPI Specification - JSON",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "user-key",
-						"type": "text",
-						"value": "d0809e7ded87068cc27bd56be81be914",
-						"disabled": true
-					},
-					{
-						"key": "app_id",
-						"type": "text",
-						"value": "a2364f8f"
-					},
-					{
-						"key": "app_key",
-						"type": "text",
-						"value": "3e6fcdb1150304f362f663fcfee4b282"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/validateMembershipJSON/api-doc/swagger.json?",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"validateMembershipJSON",
-						"api-doc",
-						"swagger.json"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "6bf088b03851c9c555cc678cccf55ac5",
-							"disabled": true
-						}
-					]
+			"name": "Get OpenAPI Specification",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
 				}
 			},
-			"response": []
-		},
-		{
-			"name": "Get OpenAPI Specification - YAML",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
-						"key": "user-key",
-						"type": "text",
-						"value": "d0809e7ded87068cc27bd56be81be914",
-						"disabled": true
-					},
-					{
-						"key": "app_id",
-						"type": "text",
-						"value": "a2364f8f"
-					},
-					{
-						"key": "app_key",
-						"type": "text",
-						"value": "3e6fcdb1150304f362f663fcfee4b282"
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/validateMembershipJSON/api-doc/swagger.yaml?",
+					"raw": "http://localhost:8080/openapi.json",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"validateMembershipJSON",
-						"api-doc",
-						"swagger.yaml"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "6bf088b03851c9c555cc678cccf55ac5",
-							"disabled": true
-						}
+						"openapi.json"
 					]
 				}
 			},

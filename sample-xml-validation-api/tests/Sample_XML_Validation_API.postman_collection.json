@@ -13,24 +13,8 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "text/xml",
-						"type": "text"
-					},
-					{
-						"key": "user-key",
-						"value": "d0033d9fc21cf687458232216f9967cb",
 						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "app_key",
-						"value": "42738810a949902fa79376f5ac956eb0",
-						"type": "text"
-					},
-					{
-						"key": "app_id",
-						"value": "6bd6a2ba",
-						"type": "text"
+						"value": "text/xml"
 					}
 				],
 				"body": {
@@ -38,7 +22,7 @@
 					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<p:membership xmlns:p=\"http://www.github.com/jeanNyil/schemas/membership/v1.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <p:requestType>API</p:requestType>\n  <p:requestID>5948</p:requestID>\n  <p:memberID>85623617</p:memberID>\n  <p:status>A</p:status>\n  <p:enrolmentDate>2019-06-29</p:enrolmentDate>\n  <p:changedBy>jeanNyil</p:changedBy>\n  <p:forcedLevelCode>69</p:forcedLevelCode>\n  <p:vipOnInvitation>Y</p:vipOnInvitation>\n  <p:startDate>2019-06-29</p:startDate>\n  <p:endDate>2100-06-29</p:endDate>\n</p:membership>"
 				},
 				"url": {
-					"raw": "http://localhost:8080/validateMembershipXML?",
+					"raw": "http://localhost:8080/validateMembershipXML",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -46,13 +30,6 @@
 					"port": "8080",
 					"path": [
 						"validateMembershipXML"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "a8789f281cf948b047c8308c8d5024e9",
-							"disabled": true
-						}
 					]
 				}
 			},
@@ -66,24 +43,8 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "text/xml",
-						"type": "text"
-					},
-					{
-						"key": "user-key",
-						"value": "d6f621f2ddf31377967537714ee1fcbe",
 						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "app_key",
-						"value": "677877e031fa03061beb9d874e17711a",
-						"type": "text"
-					},
-					{
-						"key": "app_id",
-						"value": "c36f4efc",
-						"type": "text"
+						"value": "text/xml"
 					}
 				],
 				"body": {
@@ -91,7 +52,7 @@
 					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<p:membership xmlns:p=\"http://www.github.com/jeanNyil/schemas/membership/v1.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <p:requestType>API</p:requestType>\n  <p:requestID>5948</p:requestID>\n  <p:memberID>85623617</p:memberID>\n  <p:status>A</p:status>\n  <p:enrolmentDate>20-06-29</p:enrolmentDate>\n  <p:changedBy>jeanNyil</p:changedBy>\n  <p:forcedLevelCode>69</p:forcedLevelCode>\n  <p:vipOnInvitation>Y</p:vipOnInvitation>\n  <p:startDate>2019-06-29</p:startDate>\n  <p:endDate>2100-06-29</p:endDate>\n</p:membership>"
 				},
 				"url": {
-					"raw": "http://localhost:8080/validateMembershipXML?",
+					"raw": "http://localhost:8080/validateMembershipXML",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -99,103 +60,36 @@
 					"port": "8080",
 					"path": [
 						"validateMembershipXML"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "a8789f281cf948b047c8308c8d5024e9",
-							"disabled": true
-						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get OpenAPI Specification - JSON",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "user-key",
-						"type": "text",
-						"value": "d6f621f2ddf31377967537714ee1fcbe",
-						"disabled": true
-					},
-					{
-						"key": "app_key",
-						"type": "text",
-						"value": "90a5216b2d19d8081c464030fa31c505"
-					},
-					{
-						"key": "app_id",
-						"type": "text",
-						"value": "6bd6a2ba"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/validateMembershipXML/api-doc/swagger.json?",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"validateMembershipXML",
-						"api-doc",
-						"swagger.json"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "a8789f281cf948b047c8308c8d5024e9",
-							"disabled": true
-						}
-					]
+			"name": "Get OpenAPI Specification",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
 				}
 			},
-			"response": []
-		},
-		{
-			"name": "Get OpenAPI Specification - YAML",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
-						"key": "user-key",
-						"type": "text",
-						"value": "d6f621f2ddf31377967537714ee1fcbe",
-						"disabled": true
-					},
-					{
-						"key": "app_key",
-						"type": "text",
-						"value": "90a5216b2d19d8081c464030fa31c505"
-					},
-					{
-						"key": "app_id",
-						"type": "text",
-						"value": "6bd6a2ba"
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/validateMembershipXML/api-doc/swagger.yaml?",
+					"raw": "http://localhost:8080/openapi.json",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"validateMembershipXML",
-						"api-doc",
-						"swagger.yaml"
-					],
-					"query": [
-						{
-							"key": "user_key",
-							"value": "a8789f281cf948b047c8308c8d5024e9",
-							"disabled": true
-						}
+						"openapi.json"
 					]
 				}
 			},
