@@ -1,7 +1,8 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.2",
     "info": {
         "title": "Sample JSON Validation API",
+        "version": "1.0.0",
         "description": "A simple API to test the Camel json-schema-validator component",
         "contact": {
             "name": "Jean Nyilimbibi"
@@ -9,179 +10,232 @@
         "license": {
             "name": "MIT License",
             "url": "https://opensource.org/licenses/MIT"
-        },
-        "version": "1.0.0"
+        }
     },
-    "consumes": [
-        "application/json"
-    ],
-    "produces": [
-        "application/json"
+    "servers": [
+        {
+            "url": "http://sample-json-validation-api.apps.cluster-ce1b.sandbox753.opentlc.com",
+            "description": "API Backend URL"
+        }
     ],
     "paths": {
         "/validateMembershipJSON": {
             "post": {
-                "summary": "Validate Membership JSON instance",
-                "description": "Validates a `Membership` JSON instance",
-                "operationId": "validateMembershipJSON",
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "A `Membership` JSON instance to be validated.",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Membership"
+                "requestBody": {
+                    "description": "A `Membership` JSON instance to be validated.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Membership"
+                            }
                         }
-                    }
-                ],
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
-                        "description": "`Membership`JSON data validated",
-                        "schema": {
-                            "$ref": "#/definitions/ValidationResult"
-                        }
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationResult"
+                                },
+                                "examples": {
+                                    "validationResult_200": {
+                                        "value": {
+                                            "validationResult": {
+                                                "status": "OK"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "`Membership`JSON data validated"
                     },
                     "400": {
-                        "description": "`Membership`JSON data not valid",
-                        "schema": {
-                            "$ref": "#/definitions/ValidationResult"
-                        }
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationResult"
+                                },
+                                "examples": {
+                                    "validationResult_400": {
+                                        "value": {
+                                            "validationResult": {
+                                                "status": "KO",
+                                                "errorMessage": "JSon validation error with 2 errors. Exchange[ID-sample-json-validation-api-1-nxgnq-1620389968195-0-427]"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "`Membership`JSON data not valid"
                     },
                     "500": {
-                        "description": "Internal server error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                },
+                                "examples": {
+                                    "error_500": {
+                                        "value": {
+                                            "error": {
+                                                "id": "500",
+                                                "description": "Internal Server Error",
+                                                "messages": [
+                                                    "java.lang.Exception: Mocked error message"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Internal server error"
+                    }
+                },
+                "operationId": "validateMembershipJSON",
+                "summary": "Validate Membership JSON instance",
+                "description": "Validates a `Membership` JSON instance",
+                "x-codegen-request-body-name": "body"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Membership": {
+                "description": "Membership data ",
+                "required": [
+                    "changedBy",
+                    "endDate",
+                    "enrolmentDate",
+                    "memberID",
+                    "requestID",
+                    "requestType",
+                    "vipOnInvitation"
+                ],
+                "type": "object",
+                "properties": {
+                    "requestType": {
+                        "type": "string"
+                    },
+                    "requestID": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "memberID": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "maxLength": 1,
+                        "minLength": 1,
+                        "enum": [
+                            "A",
+                            "B",
+                            "C"
+                        ],
+                        "type": "string"
+                    },
+                    "enrolmentDate": {
+                        "format": "date",
+                        "type": "string"
+                    },
+                    "changedBy": {
+                        "type": "string"
+                    },
+                    "forcedLevelCode": {
+                        "type": "string"
+                    },
+                    "vipOnInvitation": {
+                        "maxLength": 1,
+                        "minLength": 1,
+                        "enum": [
+                            "N",
+                            "Y"
+                        ],
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "format": "date",
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "format": "date",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "requestType": "API",
+                    "requestID": 5948,
+                    "memberID": 85623617,
+                    "status": "A",
+                    "enrolmentDate": "2019-06-16",
+                    "changedBy": "jeanNyil",
+                    "forcedLevelCode": "69",
+                    "vipOnInvitation": "Y",
+                    "startDate": "2019-06-16",
+                    "endDate": "2100-06-16"
+                }
+            },
+            "ValidationResult": {
+                "description": "Validation Result   ",
+                "type": "object",
+                "properties": {
+                    "validationResult": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "maxLength": 2,
+                                "minLength": 2,
+                                "enum": [
+                                    "OK",
+                                    "KO"
+                                ],
+                                "type": "string"
+                            },
+                            "errorMessage": {
+                                "type": "string"
+                            }
                         }
+                    }
+                },
+                "example": "{\n    \"validationResult\": {\n        \"status\": \"KO\",\n        \"errorMessage\": \"6 errors found\"\n    }\n}"
+            },
+            "Error": {
+                "description": "Error message structure",
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "messages": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "example": {
+                    "error": {
+                        "id": "500",
+                        "description": "Internal Server Error",
+                        "messages": [
+                            "java.lang.Exception: Mocked error message"
+                        ]
                     }
                 }
             }
         }
-    },
-    "definitions": {
-        "Membership": {
-            "title": "Root Type for membership",
-            "description": "Membership data ",
-            "required": [
-                "changedBy",
-                "endDate",
-                "enrolmentDate",
-                "memberID",
-                "requestID",
-                "requestType",
-                "vipOnInvitation"
-            ],
-            "type": "object",
-            "properties": {
-                "requestType": {
-                    "type": "string"
-                },
-                "requestID": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "memberID": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "status": {
-                    "maxLength": 1,
-                    "minLength": 1,
-                    "enum": [
-                        "A",
-                        "B",
-                        "C"
-                    ],
-                    "type": "string"
-                },
-                "enrolmentDate": {
-                    "format": "date",
-                    "type": "string"
-                },
-                "changedBy": {
-                    "type": "string"
-                },
-                "forcedLevelCode": {
-                    "type": "string"
-                },
-                "vipOnInvitation": {
-                    "maxLength": 1,
-                    "minLength": 1,
-                    "enum": [
-                        "N",
-                        "Y"
-                    ],
-                    "type": "string"
-                },
-                "startDate": {
-                    "format": "date",
-                    "type": "string"
-                },
-                "endDate": {
-                    "format": "date",
-                    "type": "string"
-                }
-            },
-            "example": "{\n    \"requestType\": \"API\",\n    \"requestID\": 5948,\n    \"memberID\": 85623617,\n    \"status\": \"A\",\n    \"enrolmentDate\": \"2019-06-16\",\n    \"changedBy\": \"jeanNyil\",\n    \"forcedLevelCode\": \"69\",\n    \"vipOnInvitation\": \"Y\",\n    \"startDate\": \"2019-06-16\",\n    \"endDate\": \"2100-06-16\"\n}"
-        },
-        "ValidationResult": {
-            "title": "Root Type for ValidationResult",
-            "description": "Validation Result   ",
-            "type": "object",
-            "properties": {
-                "validationResult": {
-                    "type": "object",
-                    "properties": {
-                        "status": {
-                            "maxLength": 2,
-                            "minLength": 2,
-                            "enum": [
-                                "OK",
-                                "KO"
-                            ],
-                            "type": "string"
-                        },
-                        "errorMessage": {
-                            "type": "string"
-                        }
-                    }
-                }
-            },
-            "example": "{\n    \"validationResult\": {\n        \"status\": \"KO\",\n        \"errorMessage\": \"6 errors found\"\n    }\n}"
-        },
-        "Error": {
-            "title": "Root Type for Error",
-            "description": "Error message structure",
-            "type": "object",
-            "properties": {
-                "error": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "messages": {
-                            "type": "array",
-                            "items": {}
-                        }
-                    }
-                }
-            },
-            "example": "{\n\t\"error\": {\n\t\t\"id\": \"500\",\n\t\t\"description\": \"Internal Server Error\",\n\t\t\"messages\": [\n\t\t\t\"java.lang.Exception: Mocked error message\"\n\t\t]\n\t}\n}"
-        }
-    },
-    "tags": [
-        {
-            "name": "RESTDSL"
-        },
-        {
-            "name": "json-schema-validator"
-        },
-        {
-            "name": "fuse7springboot"
-        }
-    ]
+    }
 }
