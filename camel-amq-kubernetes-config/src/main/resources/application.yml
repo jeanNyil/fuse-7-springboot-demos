@@ -45,7 +45,7 @@ camel:
 amqp:
   # host, port, max-connections and max-active-sessions-per-connection can be overriden 
   # via the camel-amq configmap object 
-  host: amq-ssl-broker-amqp-1-svc-rte-amq7-broker-cluster.apps.cluster-ce1b.sandbox753.opentlc.com
+  host: amq-ssl-broker-amqp-1-svc-rte-amq7-broker-cluster.apps.jeannyil.sandbox438.opentlc.com
   port: 443
   max-connections: 1
   max-active-sessions-per-connection: 500
