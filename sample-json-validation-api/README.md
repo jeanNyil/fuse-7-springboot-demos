@@ -60,7 +60,7 @@ $ curl -H 'Accept: application/json' http://localhost:8080/openapi.json
     },
     "servers": [
         {
-            "url": "http://sample-json-validation-api.apps.jeannyil.sandbox1717.opentlc.com",
+            "url": "http://sample-json-validation-api.apps.jeannyil.sandbox1444.opentlc.com",
             "description": "API Backend URL"
         }
     ],
@@ -297,4 +297,4 @@ $ curl -H 'Accept: application/json' http://localhost:8080/openapi.json
 
 Same instructions as above but replace the `localhost:8080` with your *OpenShift route for the service*.
 
-For example, `http://sample-json-validation-api.apps.jeannyil.sandbox1717.opentlc.com/openapi.json` will return the OpenAPI specification of the service.
+For example, `http://sample-json-validation-api.apps.jeannyil.sandbox1444.opentlc.com/openapi.json` will return the OpenAPI specification of the service.
