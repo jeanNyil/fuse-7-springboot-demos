@@ -8,7 +8,7 @@ Library of common resources used by the Red Hat Fuse Spring-Boot demo projects
 - Models
 - Routes
 
-## Build using Java 11 ##
+## Build using JDK 11 ##
 
 ```zsh
 mvn clean install -Pjava11

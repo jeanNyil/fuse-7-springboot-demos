@@ -13,7 +13,7 @@ The example can be built with
 
 ### Running the example locally
 
-    mvn spring-boot:run
+    mvn spring-boot:run -Pjava11
 
 ### Running the example in OpenShift
 
@@ -22,7 +22,7 @@ It is assumed that:
 - Please see the [Red Hat Fuse 7.9 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.9/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
 - The Red Hat AMQ 7 product should already be installed and running on your OpenShift installation with an SSL-enabled AMQP acceptor.
 
-Then the following command will package your app and run it on OpenShift:
+Then the following command will package your app using `JDK 11` and deploy it on OpenShift thanks to the [*Eclipse Jkube OpenShift Maven Plugin*](https://www.eclipse.org/jkube/docs/openshift-maven-plugin):
 
    mvn clean oc:deploy -Pjava11
 

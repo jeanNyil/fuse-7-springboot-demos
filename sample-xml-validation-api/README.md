@@ -8,7 +8,7 @@ Sample XML Validation API implemented by following a contract-first approach.
 **Prerequisite**: 
 - Make sure [fuse-common-resources](../fuse-common-resources/README.md) module jar has already been built and installed in your local maven repository
 
-**Run the following command to build the project using Java 11**:
+**Run the following command to build the project using JDK 11**:
 
 ```zsh
 mvn clean package -Pjava11
@@ -17,18 +17,18 @@ mvn clean package -Pjava11
 ## Run locally ##
 
 ```zsh
-mvn clean spring-boot:run -Pjava11
+mvn spring-boot:run -Pjava11
 ```
 
 ## Deploy on OpenShift ##
 
 **Prerequisite**: 
-- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.8 imagestreams* is available and running.
-- Please see the [Red Hat Fuse 7.8 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.8/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
+- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.9 imagestreams* is available and running.
+- Please see the [Red Hat Fuse 7.9 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.9/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
 
 **Instructions**:
-1. Update the [src/main/fabric8/route.yml](src/main/fabric8/route.yml) descriptor and adapt the route `host` according to your *OpenShift cluster*.
-2. Run the *Fabric8 Maven Plugin* goal to deploy the Red Hat Fuse application onto your *OpenShift cluster*.
+1. Update the [src/main/jkube/route.yml](src/main/jkube/route.yml) descriptor and adapt the route `host` according to your *OpenShift cluster*.
+2. Run the [*Eclipse Jkube OpenShift Maven Plugin*](https://www.eclipse.org/jkube/docs/openshift-maven-plugin) goal to deploy the Red Hat Fuse application onto your *OpenShift cluster*.
 
 ```zsh
 mvn clean oc:deploy -Pjava11
