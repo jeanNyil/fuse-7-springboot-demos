@@ -9,7 +9,7 @@ Their purpose is to provide small, specific and working examples that can be use
 ## Build all modules
 
 ```
-mvn clean install -Pjava11
+mvn clean install -Pjava11 -Djkube.skip
 ```
 
 ### :warning: TODO

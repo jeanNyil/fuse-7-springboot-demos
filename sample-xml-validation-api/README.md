@@ -11,13 +11,13 @@ Sample XML Validation API implemented by following a contract-first approach.
 **Run the following command to build the project using JDK 11**:
 
 ```zsh
-mvn clean package -Pjava11
+mvn clean package -Pjava11 -Djkube.skip
 ```
 
 ## Run locally ##
 
 ```zsh
-mvn spring-boot:run -Pjava11
+mvn spring-boot:run -Pjava11 -Djkube.skip
 ```
 
 ## Deploy on OpenShift ##

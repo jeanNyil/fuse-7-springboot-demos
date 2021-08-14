@@ -9,11 +9,11 @@ Besides, the _logback_ logging framework is configured to use the [logstach-logb
 
 The example can be built with
 
-    mvn clean package -Pjava11
+    mvn clean package -Pjava11 -Djkube.skip
 
 ### Running the example locally
 
-    mvn spring-boot:run -Pjava11
+    mvn spring-boot:run -Pjava11 -Djkube.skip
 
 ### Running the example in OpenShift
 
