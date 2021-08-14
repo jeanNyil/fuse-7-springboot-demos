@@ -9,7 +9,7 @@ Besides, the _logback_ logging framework is configured to use the [logstach-logb
 
 The example can be built with
 
-    mvn clean package -Dfabric8.skip
+    mvn clean package -Pjava11
 
 ### Running the example locally
 
@@ -18,13 +18,13 @@ The example can be built with
 ### Running the example in OpenShift
 
 It is assumed that:
-- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.8 imagestreams* is available and running.
-- Please see the [Red Hat Fuse 7.8 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.8/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
+- A fully functional *OpenShift cluster* containing *Red Hat Fuse 7.9 imagestreams* is available and running.
+- Please see the [Red Hat Fuse 7.9 on OpenShift Getting Started for Adminstrators](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.9/html-single/fuse_on_openshift_guide/index#get-started-admin) for more details.
 - The Red Hat AMQ 7 product should already be installed and running on your OpenShift installation with an SSL-enabled AMQP acceptor.
 
 Then the following command will package your app and run it on OpenShift:
 
-   mvn clean fabric8:deploy
+   mvn clean oc:deploy -Pjava11
 
 To list all the running pods:
 

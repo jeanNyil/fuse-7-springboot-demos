@@ -8,16 +8,16 @@ Sample JSON Validation API implemented by following a contract-first approach.
 **Prerequisite**: 
 - Make sure [fuse-common-resources](../fuse-common-resources/README.md) module jar has already been built and installed in your local maven repository
 
-**Run the following command to build the project**:
+**Run the following command to build the project using Java 11**:
 
 ```zsh
-mvn clean package -Dfabric8.skip
+mvn clean package -Pjava11
 ```
 
 ## Run locally ##
 
 ```zsh
-mvn clean spring-boot:run -Dfabric8.skip
+mvn clean spring-boot:run
 ```
 
 ## Deploy on OpenShift ##
@@ -31,7 +31,7 @@ mvn clean spring-boot:run -Dfabric8.skip
 2. Run the *Fabric8 Maven Plugin* goal to deploy the Red Hat Fuse application onto your *OpenShift cluster*.
 
 ```zsh
-mvn clean fabric8:deploy
+mvn clean oc:deploy -Pjava11
 ```
 
 ## Test ##
