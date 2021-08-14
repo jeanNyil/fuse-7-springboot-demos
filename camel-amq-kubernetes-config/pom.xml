@@ -58,8 +58,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 
@@ -80,7 +80,7 @@
 			<plugin>
 				<groupId>org.jboss.redhat-fuse</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${fuse.version}</version>
+				<version>${fuse.bom.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -91,22 +91,6 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<groupId>org.jboss.redhat-fuse</groupId>
-				<artifactId>fabric8-maven-plugin</artifactId>
-				<version>${fuse.version}</version>
-				<configuration>
-					<verbose>true</verbose>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>resource</goal>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	

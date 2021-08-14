@@ -21,15 +21,15 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
 
 		<!-- configure the Fuse version you want to use here -->
-		<fuse.version>7.8.0.fuse-sb2-780038-redhat-00001</fuse.version>
+		<fuse.bom.version>7.9.0.fuse-sb2-790065-redhat-00001</fuse.bom.version>
+		<builder.image.version>1.9</builder.image.version>
 
 		<!-- Other dependencies versions -->
 		<jsonassert.version>1.5.0</jsonassert.version>
 		<logstash-logback-encoder.version>6.5</logstash-logback-encoder.version>
-		<pooled-jms.version>1.1.1.redhat-00003</pooled-jms.version>
+		<pooled-jms.version>1.2.1.redhat-00011</pooled-jms.version>
 
 		<!-- Plugin versions -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -42,7 +42,7 @@
 			<dependency>
 				<groupId>org.jboss.redhat-fuse</groupId>
 				<artifactId>fuse-springboot-bom</artifactId>
-				<version>${fuse.version}</version>
+				<version>${fuse.bom.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -228,5 +228,115 @@
 		<module>sample-json-validation-api</module>
 		<module>sample-xml-validation-api</module>
     </modules>
+
+	<profiles>
+        <profile>
+            <id>openshift</id>
+            <properties>
+                <jkube.generator.from>registry.redhat.io/fuse7/fuse-java-openshift:${builder.image.version}</jkube.generator.from>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jboss.redhat-fuse</groupId>
+                        <artifactId>openshift-maven-plugin</artifactId>
+                        <version>${fuse.bom.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                    <goal>apply</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <resources>
+                                <labels>
+									<pod>
+										<property>
+										<name>com.company</name>
+										<value>Red_Hat</value>
+										</property>
+										<property>
+										<name>rht.prod_name</name>
+										<value>Red_Hat_Integration</value>
+										</property>
+										<property>
+										<name>rht.prod_ver</name>
+										<value>7.9</value>
+										</property>
+										<property>
+										<name>rht.comp</name>
+										<value>spring-boot-camel-amq</value>
+										</property>
+										<property>
+										<name>rht.comp_ver</name>
+										<value>${fuse.bom.version}</value>
+										</property>
+									</pod>
+                                </labels>
+                            </resources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>java11</id>
+            <properties>
+                <jkube.generator.from>registry.redhat.io/fuse7/fuse-java-openshift-jdk11-rhel8:${builder.image.version}</jkube.generator.from>
+            </properties>
+            <activation>
+                <jdk>[11,)</jdk>
+            </activation>
+			<build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jboss.redhat-fuse</groupId>
+                        <artifactId>openshift-maven-plugin</artifactId>
+                        <version>${fuse.bom.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                    <goal>apply</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <resources>
+                                <labels>
+									<pod>
+										<property>
+										<name>com.company</name>
+										<value>Red_Hat</value>
+										</property>
+										<property>
+										<name>rht.prod_name</name>
+										<value>Red_Hat_Integration</value>
+										</property>
+										<property>
+										<name>rht.prod_ver</name>
+										<value>7.9</value>
+										</property>
+										<property>
+										<name>rht.comp</name>
+										<value>spring-boot-camel-amq</value>
+										</property>
+										<property>
+										<name>rht.comp_ver</name>
+										<value>${fuse.bom.version}</value>
+										</property>
+									</pod>
+                                </labels>
+                            </resources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
