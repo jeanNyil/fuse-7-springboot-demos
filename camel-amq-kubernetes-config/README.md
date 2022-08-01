@@ -24,7 +24,7 @@ It is assumed that:
 
 Then the following command will package your app using `JDK 11` and deploy it on OpenShift thanks to the [*Eclipse Jkube OpenShift Maven Plugin*](https://www.eclipse.org/jkube/docs/openshift-maven-plugin):
 
-   mvn clean oc:deploy -Pjava11
+    mvn clean oc:deploy -Pjava11
 
 To list all the running pods:
 
